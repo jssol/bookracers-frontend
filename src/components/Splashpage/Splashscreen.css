@@ -1,0 +1,42 @@
+.splashscreen-container {
+  display: grid;
+  grid-template-columns: 70% 30% 70%;
+  width: 60%;
+  /* height: 400px; */
+  padding: 80px auto 0 auto;
+  margin: 100px auto auto auto;
+  overflow: hidden;
+  transition: 0.3s linear;
+
+  /* background-color: red; */
+}
+
+.splashscreen-container.active {
+  grid-template-columns: 0 30% 70%;
+  transition: 0.3s linear;
+}
+
+.splashscreen-container .side-div {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../assets/bike.png);
+  background-size: cover;
+  background-position: center;
+  justify-content: center;
+}
+
+.splashscreen-container .side-div button {
+  padding: 10px 20px;
+  background-color: #a3e635;
+  color: #000;
+  cursor: pointer;
+  font-size: 0.99rem;
+  transition: 0.3s linear;
+}
+
+.splashscreen-container .side-div div:hover {
+  background-color: rgb(73, 70, 70);
+}
