@@ -2,13 +2,21 @@
   display: grid;
   grid-template-columns: 70% 30% 70%;
   width: 60%;
-  /* height: 400px; */
-  padding: 80px auto 0 auto;
   margin: 100px auto auto auto;
   overflow: hidden;
   transition: 0.3s linear;
+  background-color: #c9d1cb;
+  border-radius: 15px;
+}
 
-  /* background-color: red; */
+.splash-h1 {
+  font-weight: bold;
+  background-image: url(../assets/lemon.jpg);
+  background-position: bottom;
+  background-clip: initial;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-left: 50px;
 }
 
 .splashscreen-container.active {
@@ -25,7 +33,6 @@
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../assets/bike.png);
   background-size: cover;
   background-position: center;
-  justify-content: center;
 }
 
 .splashscreen-container .side-div button {
