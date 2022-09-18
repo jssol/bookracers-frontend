@@ -9,7 +9,7 @@ const Registration = () => (
           <NavLink to="">Sign In</NavLink>
         </li>
         <li className="registration-page-nav-list-item">
-          <NavLink to="sign-up">Sign Up</NavLink>
+          <NavLink to="sign_up">Sign Up</NavLink>
         </li>
       </ul>
     </nav>

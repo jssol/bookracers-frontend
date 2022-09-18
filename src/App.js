@@ -10,7 +10,7 @@ const App = () => (
     <Route path="/" element={<Splashscreen />} />
     <Route path="register" element={<Register />}>
       <Route index element={<Login />} />
-      <Route path="appointement" element={<Signup />} />
+      <Route path="sign_up" element={<Signup />} />
     </Route>
   </Routes>
 );
