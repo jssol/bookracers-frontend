@@ -1,6 +1,6 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Splashscreen from './components/Splashscreen';
+import Splashscreen from './components/Splashpage/Splashscreen';
 import './App.scss';
 
 const App = () => (
