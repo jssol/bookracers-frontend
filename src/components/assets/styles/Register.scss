@@ -1,14 +1,21 @@
 @use 'design';
 
-.registration-page {
+.registration-page-container {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  background-color: design.$white;
+}
+
+.registration-page {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
   align-items: center;
   gap: 1em;
-  background-color: design.$white;
 }
 
 .registration-page-content {
@@ -16,13 +23,12 @@
   flex-direction: column;
   width: 90%;
   gap: 1em;
-  margin-top: 5em;
 }
 
 .registration-page-nav-list {
   display: flex;
   flex-direction: row;
-  gap: 1em;
+  gap: .5em;
   list-style: none;
   padding: 0;
 }
@@ -37,7 +43,6 @@
   color: design.$orange;
   cursor: pointer;
   padding: .5em 1em;
-  outline: 2px solid currentColor;
   border-radius: 5em;
   text-decoration: none;
 }
@@ -83,6 +88,5 @@
 @media only screen and (min-width: 900px) {
   .registration-page-content {
     width: 40%;
-    margin-top: 12em;
   }
 }
