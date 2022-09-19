@@ -6,6 +6,7 @@ import { useFormik } from 'formik';
 const SignUp = () => {
   const formik = useFormik({
     initialValues: {
+      name: '',
       email: '',
       password: '',
     },
@@ -16,6 +17,14 @@ const SignUp = () => {
 
   return (
     <form className="form-container" onSubmit={formik.handleSubmit}>
+      <input
+        type="text"
+        placeholder="Name"
+        name="name"
+        className="form-input"
+        value={formik.values.name}
+        onChange={formik.handleChange}
+      />
       <input
         type="text"
         placeholder="Email"
