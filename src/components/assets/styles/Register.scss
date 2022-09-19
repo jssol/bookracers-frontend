@@ -28,7 +28,7 @@
 .registration-page-nav-list {
   display: flex;
   flex-direction: row;
-  gap: .5em;
+  gap: 0.5em;
   list-style: none;
   padding: 0;
 }
@@ -42,7 +42,7 @@
   background-color: design.$white;
   color: design.$orange;
   cursor: pointer;
-  padding: .5em 1em;
+  padding: 0.5em 1em;
   border-radius: 5em;
   text-decoration: none;
 }
@@ -68,7 +68,7 @@
 }
 
 .form-input {
-  padding: .5em 1em;
+  padding: 0.5em 1em;
   height: 2.5em;
   background-color: transparent;
   border: 1px solid design.$dark-gray;
@@ -83,7 +83,6 @@
 .form-button {
   height: 2.5em;
 }
-
 
 @media only screen and (min-width: 900px) {
   .registration-page-content {
