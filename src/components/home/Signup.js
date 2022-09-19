@@ -1,16 +1,42 @@
-import '../assets/styles/Signup.scss';
+import React from 'react';
+import { useFormik } from 'formik';
+// import { useDispatch, useSelector } from 'react-redux';
+// import { NavLink, useNavigate } from 'react-router-dom';
 
-const Signup = () => (
-  <div className="signup">
-    <h3>Sign Up</h3>
-    <form>
-      <input type="name" placeholder="Name" />
-      <input type="email" placeholder="Email" />
-      <input type="password" placeholder="Password" />
-      <input type="password" placeholder="confirm-Password" />
-      <button className="btn" type="submit">Login</button>
+const SignUp = () => {
+  const formik = useFormik({
+    initialValues: {
+      email: '',
+      password: '',
+    },
+    onSubmit: (values) => {
+      alert(JSON.stringify({ user: values }, null, 2));
+    },
+  });
+
+  return (
+    <form className="form-container" onSubmit={formik.handleSubmit}>
+      <input
+        type="text"
+        placeholder="Email"
+        name="email"
+        className="form-input"
+        value={formik.values.email}
+        onChange={formik.handleChange}
+      />
+      <input
+        type="password"
+        placeholder="Password"
+        name="password"
+        className="form-input"
+        value={formik.values.password}
+        onChange={formik.handleChange}
+      />
+      <button type="submit" className="form-button button">
+        Next
+      </button>
     </form>
-  </div>
-);
+  );
+};
 
-export default Signup;
+export default SignUp;
