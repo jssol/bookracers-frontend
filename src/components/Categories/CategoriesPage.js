@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import CategoryCard from './CategoryCard';
+import './category.scss';
 
 class CategoriesPage extends Component {
   constructor(props) {
@@ -32,7 +33,7 @@ class CategoriesPage extends Component {
   render() {
     const { catsList, error } = this.state;
     return (
-      <div>
+      <div className="container">
         {catsList.length
           ? catsList.map((cat) => (
             <CategoryCard key={cat.id} category={cat.catname} />
@@ -45,28 +46,3 @@ class CategoriesPage extends Component {
 }
 
 export default CategoriesPage;
-
-// import React, { useEffect, useState } from 'react';
-// import axios from 'axios';
-// import CategoryCard from './CategoryCard';
-
-// function CategoriesPage() {
-//   const [cats, setCats] = useState(null);
-//   useEffect(() => {
-//     async function fetchData() { await axios.get(
-//         'https://jsonplaceholder.typicode.com/users'
-//       ).then(response => setCats(response.data));
-//       console.log(cats);
-//     }
-//     fetchData();
-//   }, []);
-
-//   return (
-//     <div>
-//       CategoriesPage
-//       {cats && cats.map((cat) => <CategoryCard key={cat.id} category={cat} />)}
-//     </div>
-//   );
-// }
-
-// export default CategoriesPage;
