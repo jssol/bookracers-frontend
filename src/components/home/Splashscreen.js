@@ -1,11 +1,16 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import '../assets/styles/Splashscreen.scss';
 
 const Splashscreen = () => (
   <main className="splashscreen-container">
-    Splashscreen page
+    <section className="splashscreen-content">
+      <h2 className="splashscreen-message">Welcome To BookRacers!</h2>
+      <NavLink to="/register" className="button splashscreen-button">
+        Register
+      </NavLink>
+    </section>
   </main>
-
 );
 
 export default Splashscreen;
