@@ -2,7 +2,6 @@ import React from 'react';
 import { useFormik } from 'formik';
 // import { useDispatch, useSelector } from 'react-redux';
 // import { NavLink, useNavigate } from 'react-router-dom';
-import '../assets/styles/Login.scss';
 
 const Login = () => {
   const formik = useFormik({
@@ -38,9 +37,9 @@ const Login = () => {
       />
       <button
         type="submit"
-        className="button"
+        className="form-button button"
       >
-        Login
+        Next
       </button>
     </form>
   );
