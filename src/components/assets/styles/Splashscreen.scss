@@ -1,0 +1,33 @@
+@use 'design';
+
+.splashscreen-container {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url('../images/vespa.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  background-color: design.$orange;
+  color: design.$white;
+}
+
+.splashscreen-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+  color: design.$white;
+}
+
+.splashscreen-message {
+  font-size: 4em;
+}
+
+.splashscreen-button {
+  font-size: 1.5em;
+}
