@@ -9,7 +9,7 @@ function Signup() {
         <input type="email" placeholder="Email" />
         <input type="password" placeholder="Password" />
         <input type="password" placeholder="confirm-Password" />
-        <button className="btn" type="submit">Login</button>
+        <button className="btn" type="submit">Sign up</button>
       </form>
     </div>
   );
