@@ -8,6 +8,7 @@ const SignUp = () => {
     initialValues: {
       name: '',
       email: '',
+      admin: false,
       password: '',
     },
     onSubmit: (values) => {
