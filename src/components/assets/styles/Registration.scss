@@ -1,0 +1,80 @@
+@use 'design';
+
+.registration-page {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+  background-color: design.$white;
+}
+
+.registration-page-content {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  gap: 1em;
+  margin-top: 5em;
+}
+
+.registration-page-nav-list {
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+  list-style: none;
+  padding: 0;
+}
+
+.registration-page-nav-list-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1em;
+  font-weight: 600;
+  background-color: design.$white;
+  color: design.$orange;
+  cursor: pointer;
+  padding: .5em 1em;
+  outline: 2px solid currentColor;
+  border-radius: 5em;
+  text-decoration: none;
+}
+
+.registration-page-nav-list-item.active {
+  background-color: design.$orange;
+  color: design.$white;
+  border: none;
+  outline: 4px solid currentColor;
+}
+
+.registration-page-outlet {
+  box-shadow: design.$shadow-medium;
+  border-radius: 1em;
+  overflow: hidden;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  padding: 1.75em 1.5em;
+}
+
+.form-input {
+  padding: .5em 1em;
+  height: 2.5em;
+  background-color: transparent;
+  border: 1px solid design.$dark-gray;
+  border-radius: 5em;
+  color: design.$dark-gray;
+}
+
+.form-input:focus {
+  border: 1px solid design.$orange;
+}
+
+.form-button {
+  height: 2.5em;
+}
