@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { nanoid } from '@reduxjs/toolkit';
 import axios from 'axios';
 import CategoryCard from './CategoryCard';
 import './category.scss';
@@ -36,7 +37,7 @@ class CategoriesPage extends Component {
       <div className="container">
         {catsList.length
           ? catsList.map((cat) => (
-            <CategoryCard key={cat.id} category={cat.catname} />
+            <CategoryCard key={nanoid()} category={cat} />
           ))
           : null}
         {error ? <div>{error}</div> : null}

@@ -1,22 +1,35 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './category.scss';
+import { Link } from 'react-router-dom';
+// import MotorcycleList from './MotorcycleList';
 
-function CategoryCard(props) {
-  const { category } = props;
+function CategoryCard({ category }) {
+  const { catname, id } = category;
   return (
-    <div className="card">
-      {category}
-    </div>
+    <Link to={`/categories/${id}`}>
+      <div className="card">
+        {id}
+        {' '}
+        {catname}
+        {/* <MotorcycleList catid={id} /> */}
+      </div>
+    </Link>
   );
 }
 
 CategoryCard.defaultProps = {
-  category: '',
+  category: {
+    catname: '',
+    id: 0,
+  },
 };
 
 CategoryCard.propTypes = {
-  category: PropTypes.string,
+  category: PropTypes.shape({
+    catname: PropTypes.string,
+    id: PropTypes.number,
+  }),
 };
 
 export default CategoryCard;
