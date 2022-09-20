@@ -22,13 +22,9 @@ function MotorcycleList() {
 
   return (
     <div className="container">
-      <h2>
-        Category
-        {params.id}
-      </h2>
       {motorcycles.length
         ? motorcycles.map((motorcycle) => (
-          <MotorcycleCard key={nanoid()} motorcycle={motorcycle} />
+          <MotorcycleCard key={nanoid()} motor={motorcycle} />
         ))
         : null}
     </div>
