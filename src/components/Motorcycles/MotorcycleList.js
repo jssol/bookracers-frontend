@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { nanoid } from '@reduxjs/toolkit';
 import axios from 'axios';
 import MotorcycleCard from './MotorcycleCard';
+import './motorcycle.scss';
 
 function MotorcycleList() {
   const params = useParams();
@@ -17,12 +18,13 @@ function MotorcycleList() {
       console.log(response.data);
     }
     fetchData();
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
   return (
-    <div>
-      MotorcycleList
-      {params.id}
-      {' '}
+    <div className="container">
+      <h2>
+        Category
+        {params.id}
+      </h2>
       {motorcycles.length
         ? motorcycles.map((motorcycle) => (
           <MotorcycleCard key={nanoid()} motorcycle={motorcycle} />

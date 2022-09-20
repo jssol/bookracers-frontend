@@ -2,13 +2,24 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function MotorcycleCard({ motorcycle }) {
-  const { model, id } = motorcycle;
+  const { model, id, image } = motorcycle;
   return (
-    <div>
-      MotorcycleCard
-      {model}
-      {' '}
-      {id}
+    <div className="card">
+      <ul>
+        <li>
+          Motorcycle Model:
+          {' '}
+          {model}
+
+        </li>
+        <li>
+          ID:
+          {' '}
+          {id}
+
+        </li>
+      </ul>
+      { image && (<img src={image} alt="" className="imgSize" />) }
     </div>
   );
 }
@@ -16,6 +27,7 @@ function MotorcycleCard({ motorcycle }) {
 MotorcycleCard.defaultProps = {
   motorcycle: {
     model: '',
+    image: '',
     id: 0,
   },
 };
@@ -23,6 +35,7 @@ MotorcycleCard.defaultProps = {
 MotorcycleCard.propTypes = {
   motorcycle: PropTypes.shape({
     model: PropTypes.string,
+    image: PropTypes.string,
     id: PropTypes.number,
   }),
 };

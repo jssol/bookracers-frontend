@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './category.scss';
 import { Link } from 'react-router-dom';
-// import MotorcycleList from './MotorcycleList';
+import './category.scss';
 
 function CategoryCard({ category }) {
   const { catname, id } = category;
@@ -12,7 +11,6 @@ function CategoryCard({ category }) {
         {id}
         {' '}
         {catname}
-        {/* <MotorcycleList catid={id} /> */}
       </div>
     </Link>
   );
