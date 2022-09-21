@@ -1,26 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200;400&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Raleway', sans-serif;
+}
+
+ul li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
 .container {
   display: grid;
   grid-column-gap: 15px;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
 
-.card {
+.card.card-content {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 80%;
-  height: 50vh;
+  height: 57vh;
   margin: 1rem auto;
   box-shadow: 0 2px 2px rgba(45, 39, 39, 0.15);
   color: #5d5e5e;
-  border-radius: 4px;
-  border: 2px solid #e7e7e7;
+  border: 1px solid #e7e7e7;
   padding: 1rem;
+  border-radius: 3%;
+  background-color: #f5f5f5;
+}
+
+.model {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-align: center;
+  background: #fff;
+  border-top: 1px solid #5d5e5e;
+  border-bottom: 1px solid #5d5e5e;
+}
+
+.model-name {
+  display: flex;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: #5d5e5e;
+}
+
+.model-header,
+.content-id {
+  text-align: center;
+  padding: 0.5rem;
+}
+
+.content-id {
+  color: #98c110;
+}
+
+.modelheader-ptag {
+  font-size: small;
+}
+
+.socials {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1rem;
+  width: 80%;
+}
+
+.socials li {
+  background: white;
+  border-radius: 100%;
+  padding: 5px;
+  border: 1px solid #5d5e5e;
 }
 
 .imgSize {
-  width: 150px;
-  height: 150px;
+  width: 140px;
+  // height: 140px;
+  object-fit: cover;
+  border-radius: 9%;
+  background: #000;
+  padding: 1px;
+  margin-bottom: 20px;
+}
+
+.imgSize img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
 @media screen and (min-width: 768px) {
@@ -32,7 +114,12 @@
     grid-gap: 0;
   }
 
-  .card {
+  .card.card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
     position: relative;
   }
 }
