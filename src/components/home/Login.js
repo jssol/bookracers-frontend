@@ -1,16 +1,18 @@
 import React from 'react';
 import { useFormik } from 'formik';
-// import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { login } from '../../redux/authentication/authentication';
 // import { NavLink, useNavigate } from 'react-router-dom';
 
 const Login = () => {
+  const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
       email: '',
       password: '',
     },
     onSubmit: (values) => {
-      alert(JSON.stringify({ user: values }, null, 2));
+      dispatch(login(values));
     },
   });
 

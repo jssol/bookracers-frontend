@@ -1,11 +1,10 @@
 import React from 'react';
 import { useFormik } from 'formik';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { signup } from '../../redux/authentication/authentication';
 // import { NavLink, useNavigate } from 'react-router-dom';
 
 const SignUp = () => {
-  const state = useSelector((state) => state.auth.value);
   const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
@@ -13,9 +12,10 @@ const SignUp = () => {
       email: '',
       admin: false,
       password: '',
+      password_confirmation: '',
     },
     onSubmit: (values) => {
-      dispatch(signup(state, values));
+      dispatch(signup(values));
     },
   });
 
@@ -43,6 +43,14 @@ const SignUp = () => {
         name="password"
         className="form-input"
         value={formik.values.password}
+        onChange={formik.handleChange}
+      />
+      <input
+        type="password"
+        placeholder="Confirm password"
+        name="password_confirmation"
+        className="form-input"
+        value={formik.values.password_confirmation}
         onChange={formik.handleChange}
       />
       <button type="submit" className="form-button button">
