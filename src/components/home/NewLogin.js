@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { signup } from '../../redux/user/signupSlice';
+import { login } from '../../redux/user/loginSlice';
 
-function NewSignUp() {
+function NewLogin() {
   const dispatch = useDispatch();
-  let state = useSelector((state) => state.signup.user);
-  const authenticated = useSelector((state) => state.signup.authenticated);
-  const [name, setName] = useState('');
+  let state = useSelector((state) => state.login.user);
+  const authenticated = useSelector((state) => state.login.authenticated);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -15,34 +14,23 @@ function NewSignUp() {
 
   useEffect(() => {
     if (authenticated) {
-      navigate('/register/login');
+      navigate('/categories');
     }
   }, [navigate, authenticated]);
 
   state = {
-    name,
     email,
     password,
-    admin: false,
   };
 
   const submitHandler = (e) => {
-    dispatch(signup(state));
-    console.log(state);
+    dispatch(login(state));
     e.preventDefault();
   };
 
   return (
     <>
       <form className="form-container" onSubmit={submitHandler}>
-        <input
-          type="text"
-          placeholder="Name"
-          name="name"
-          className="form-input"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
         <input
           type="text"
           placeholder="Email"
@@ -67,4 +55,4 @@ function NewSignUp() {
   );
 }
 
-export default NewSignUp;
+export default NewLogin;

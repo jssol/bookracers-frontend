@@ -7,13 +7,13 @@ const initialState = {
   loading: false,
   user: {},
   error: '',
-  success: false,
+  authenticated: false,
 };
 
-const setToken = (token) => {
-  localStorage.setItem('token', token);
-  localStorage.setItem('lastLoginTime', new Date(Date.now()).getTime());
-};
+// const setToken = (token) => {
+//   localStorage.setItem('token', token);
+//   localStorage.setItem('lastLoginTime', new Date(Date.now()).getTime());
+// };
 
 // const getToken = () => {
 //   const now = new Date(Date.now()).getTime();
@@ -30,14 +30,11 @@ export const signup = createAsyncThunk('user/signup', (credentials) => axios
   .post(`${BASE_URL}signup`, {
     user: credentials,
   })
-  .then((response) => {
-    setToken(response.data.token);
-    console.log('working');
-    return response.data;
-  }));
+  .then((response) => response.data));
+  // setToken(response.data.token);
 
-const userSlice = createSlice({
-  name: 'user',
+const signupSlice = createSlice({
+  name: 'userSignup',
   initialState,
   /* eslint-disable */
   extraReducers: (builder) => {
@@ -47,7 +44,7 @@ const userSlice = createSlice({
     builder.addCase(signup.fulfilled, (state, action) => {
       state.loading = false;
       state.user = action.payload;
-      state.success = true;
+      state.authenticated = true;
     });
     builder.addCase(signup.rejected, (state, action) => {
       state.error = action.error.message;
@@ -56,4 +53,4 @@ const userSlice = createSlice({
   /* eslint-enable */
 });
 
-export default userSlice.reducer;
+export default signupSlice.reducer;
