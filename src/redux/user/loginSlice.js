@@ -40,14 +40,21 @@ const userSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(login.pending, (state) => {
       state.loading = true;
+      state.user = {};
+      state.error = '';
+      state.authenticated = false;
     });
     builder.addCase(login.fulfilled, (state, action) => {
       state.loading = false;
       state.user = action.payload;
+      state.error = '';
       state.authenticated = true;
     });
     builder.addCase(login.rejected, (state, action) => {
+      state.loading = false;
+      state.user = {};
       state.error = action.error.message;
+      state.authenticated = false;
     });
   },
   /* eslint-enable */
