@@ -10,6 +10,7 @@ function NewSignUp() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [passwordConfirmation, setPasswordConfirmation] = useState('');
 
   const navigate = useNavigate();
 
@@ -27,8 +28,11 @@ function NewSignUp() {
   };
 
   const submitHandler = (e) => {
+    if (password !== passwordConfirmation) {
+      alert('Password mismatch');
+      e.preventDefault();
+    }
     dispatch(signup(state));
-    console.log(state);
     e.preventDefault();
   };
 
@@ -58,6 +62,14 @@ function NewSignUp() {
           className="form-input"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+        />
+        <input
+          type="password"
+          placeholder="Repeat Password"
+          name="password"
+          className="form-input"
+          value={passwordConfirmation}
+          onChange={(e) => setPasswordConfirmation(e.target.value)}
         />
         <button type="submit" className="form-button button">
           Next

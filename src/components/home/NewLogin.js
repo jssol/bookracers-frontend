@@ -40,7 +40,7 @@ function NewLogin() {
           onChange={(e) => setEmail(e.target.value)}
         />
         <input
-          type="text"
+          type="password"
           placeholder="Password"
           name="password"
           className="form-input"
