@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 function MotorcycleCard({ motor }) {
   const params = useParams();
   const { catname, id, motorcycles } = motor;
-  console.log(motorcycles);
 
   return (
     <>
