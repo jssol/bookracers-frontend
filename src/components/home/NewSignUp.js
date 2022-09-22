@@ -16,7 +16,7 @@ function NewSignUp() {
 
   useEffect(() => {
     if (authenticated) {
-      navigate('/register/login');
+      navigate('/required/login');
     }
   }, [navigate, authenticated]);
 
@@ -46,6 +46,7 @@ function NewSignUp() {
           className="form-input"
           value={name}
           onChange={(e) => setName(e.target.value)}
+          required
         />
         <input
           type="text"
@@ -54,6 +55,7 @@ function NewSignUp() {
           className="form-input"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          required
         />
         <input
           type="password"
@@ -62,6 +64,7 @@ function NewSignUp() {
           className="form-input"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          required
         />
         <input
           type="password"
@@ -70,6 +73,7 @@ function NewSignUp() {
           className="form-input"
           value={passwordConfirmation}
           onChange={(e) => setPasswordConfirmation(e.target.value)}
+          required
         />
         <button type="submit" className="form-button button">
           Next

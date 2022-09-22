@@ -38,6 +38,7 @@ function NewLogin() {
           className="form-input"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          required
         />
         <input
           type="password"
@@ -46,9 +47,10 @@ function NewLogin() {
           className="form-input"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          required
         />
         <button type="submit" className="form-button button">
-          Next
+          Log In
         </button>
       </form>
     </>
