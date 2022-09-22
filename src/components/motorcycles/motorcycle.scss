@@ -18,6 +18,9 @@ a {
   text-decoration: none;
 }
 
+.motorcycle-list {
+background: #f5f5f5;}
+
 .container {
   display: grid;
   grid-column-gap: 15px;
@@ -37,7 +40,7 @@ a {
   border: 1px solid #e7e7e7;
   padding: 1rem;
   border-radius: 3%;
-  background-color: #f5f5f5;
+  background-color: #fff;
 }
 
 .model {
@@ -108,16 +111,16 @@ a {
 
 @media screen and (min-width: 768px) {
   .container {
-    // display: grid;
-    // margin: 5rem 20rem;
-    // grid-template-columns: repeat(3, 1fr);
-    // grid-auto-rows: auto;
-    // grid-gap: 0;
-
     display: grid;
-    place-items: center;
-    grid-template-columns: auto auto auto;
-    gap: 3px;
+    margin: 5rem 20rem;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: auto;
+    grid-gap: 0;
+
+    // display: grid;
+    // place-items: center;
+    // grid-template-columns: auto auto auto;
+    // gap: 3px;
   }
 
   .card.card-content {
