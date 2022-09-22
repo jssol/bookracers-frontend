@@ -16,7 +16,7 @@ function NewSignUp() {
 
   useEffect(() => {
     if (authenticated) {
-      navigate('/required/login');
+      navigate('/register/login');
     }
   }, [navigate, authenticated]);
 
