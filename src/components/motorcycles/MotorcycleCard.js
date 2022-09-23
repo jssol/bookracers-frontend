@@ -19,7 +19,7 @@ function MotorcycleCard({ motor }) {
       </h2>
       {motorcycles.length
         ? motorcycles.map((el) => (
-          <Link to={`/categories/${params.id}/motorcycles/${id}`} key={nanoid()}>
+          <Link to={`/categories/${params.id}/motorcycles/${el.id}`} key={nanoid()}>
             <div className="card">
               <ul>
                 <li>

@@ -13,6 +13,11 @@ function MotorcycleList() {
     async function fetchData() {
       const response = await axios.get(
         `http://localhost:3001/api/v1/categories/${params.id}`,
+        {
+          headers: {
+            Authorization: `${localStorage.getItem('token')}`,
+          },
+        },
       );
       setMotorcycles(response.data);
     }
