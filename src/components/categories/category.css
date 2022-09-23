@@ -21,7 +21,6 @@ a {
   align-items: center;
   width: 80%;
   height: 50vh;
-  margin-top: 5%;
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.15);
   color: #5d5e5e;
   border-radius: 4px;
@@ -44,7 +43,6 @@ a {
   .category-container {
     display: grid;
     grid-template-columns: 2fr 2fr 2fr;
-
   }
 
   .card {

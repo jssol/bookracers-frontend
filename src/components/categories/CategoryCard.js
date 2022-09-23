@@ -31,7 +31,7 @@ function CategoryCard({ category, index }) {
         <div>
           <img src={arr[index]} alt=" " className="card-img" />
         </div>
-        
+
         <h3>{catname}</h3>
       </div>
     </Link>
