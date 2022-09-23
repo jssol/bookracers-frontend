@@ -27,12 +27,11 @@ function NewSignUp() {
   };
 
   const submitHandler = (e) => {
+    e.preventDefault();
     if (password !== passwordConfirmation) {
-      e.preventDefault();
       alert('Password mismatch');
     }
     dispatch(signup(state));
-    e.preventDefault();
   };
 
   return (
