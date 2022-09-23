@@ -29,7 +29,7 @@ function NewSignUp() {
   const submitHandler = (e) => {
     e.preventDefault();
     if (password !== passwordConfirmation) {
-      // alert('Password mismatch');
+      alert('Password mismatch');
     }
     dispatch(signup(state));
   };
