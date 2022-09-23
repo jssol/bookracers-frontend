@@ -8,7 +8,6 @@
   display: flex;
   flex-direction: column;
   background-repeat: no-repeat;
-  border: 2px solid red;
 }
 
 a {
