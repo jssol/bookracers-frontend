@@ -10,7 +10,6 @@ import './motorcycle.scss';
 function MotorcycleCard({ motor }) {
   const params = useParams();
   const { catname, id, motorcycles } = motor;
-  console.log(motorcycles);
 
   return (
     <>

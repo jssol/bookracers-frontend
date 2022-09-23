@@ -1,4 +1,4 @@
-@use 'design';
+@import 'design';
 
 .footer {
   display: flex;
@@ -6,6 +6,6 @@
   padding: 1em;
   font-size: 1.5em;
   font-weight: 700;
-  background-color: design.$orange;
-  color: design.$white;
+  background-color: $orange;
+  color: $white;
 }
