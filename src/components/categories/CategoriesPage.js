@@ -37,13 +37,14 @@ class CategoriesPage extends Component {
     const { catsList, error } = this.state;
     return (
 
-      <div className="container">
+      <div className="category-container">
         {catsList.length
           ? catsList.map((cat, index) => (
             <CategoryCard key={nanoid()} category={cat} index={index} />
 
           ))
           : null}
+
         {error ? <div>{error}</div> : null}
       </div>
 
