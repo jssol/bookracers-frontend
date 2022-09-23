@@ -31,22 +31,22 @@ class CategoriesPage extends Component {
           error: error.message,
         });
       });
-    }
-    
-    render() {
-      const { catsList, error } = this.state;
+  }
+
+  render() {
+    const { catsList, error } = this.state;
     return (
 
       <div className="container">
         {catsList.length
-          ? catsList.map((cat,index) => (
+          ? catsList.map((cat, index) => (
             <CategoryCard key={nanoid()} category={cat} index={index} />
 
           ))
           : null}
         {error ? <div>{error}</div> : null}
       </div>
-  
+
     );
   }
 }
