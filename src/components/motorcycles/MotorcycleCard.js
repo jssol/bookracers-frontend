@@ -2,6 +2,10 @@ import React from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { nanoid } from '@reduxjs/toolkit';
 import PropTypes from 'prop-types';
+import {
+  FaFacebook, FaInstagram, FaTwitter, FaWhatsapp,
+} from 'react-icons/fa';
+import './motorcycle.scss';
 
 function MotorcycleCard({ motor }) {
   const params = useParams();
@@ -9,35 +13,48 @@ function MotorcycleCard({ motor }) {
 
   return (
     <>
-      <h2>
-        Category Name:
-        {catname}
-      </h2>
-      <h2>
-        Category ID:
-        {id}
-      </h2>
-      {motorcycles.length
-        ? motorcycles.map((el) => (
-          <Link to={`/categories/${params.id}/motorcycles/${el.id}`} key={nanoid()}>
-            <div className="card">
-              <ul>
-                <li>
-                  Motorcycle Model:
-                  {' '}
-                  {el.model}
-                </li>
-                <li>
-                  ID:
-                  {' '}
-                  {el.id}
-                </li>
-              </ul>
-              { el.image && (<img src={el.image} alt="" className="imgSize" />) }
-            </div>
-          </Link>
-        ))
-        : null}
+      <div className="model-name">
+        <p>
+          {catname}
+        </p>
+        <p>
+          {id}
+        </p>
+      </div>
+
+      <div className="container">
+
+        {motorcycles.length
+          ? motorcycles.map((el) => (
+            <Link to={`/categories/${params.id}/motorcycles/${id}`} key={nanoid()}>
+              <div className="card card-content">
+                <div className="img-div">
+                  { el.image && (<img src={el.image} alt="" className="imgSize" />) }
+                </div>
+                <ul>
+                  <li className="model">
+                    Motorcycle Model:
+                    {' '}
+                    {el.model}
+                  </li>
+                  <li className="content-id">
+                    ID:
+                    {' '}
+                    {el.id}
+                  </li>
+                </ul>
+                <ul className="socials">
+                  <li><FaFacebook /></li>
+                  <li><FaInstagram /></li>
+                  <li><FaTwitter /></li>
+                  <li><FaWhatsapp /></li>
+                </ul>
+              </div>
+
+            </Link>
+          ))
+          : null}
+      </div>
     </>
   );
 }
