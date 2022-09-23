@@ -17,7 +17,6 @@ function MotorcycleList() {
         `http://localhost:3001/api/v1/categories/${params.id}`,
       );
       setMotorcycles(response.data);
-      console.log(response.data);
     }
     fetchData();
   }, []); // eslint-disable-line react-hooks/exhaustive-deps

@@ -1,4 +1,4 @@
-@use 'design';
+@import 'design';
 
 .splashscreen-container {
   width: 100vw;
@@ -11,8 +11,8 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: bottom;
-  background-color: design.$orange;
-  color: design.$white;
+  background-color: $orange;
+  color: $white;
 }
 
 .splashscreen-content {
@@ -21,7 +21,7 @@
   align-items: center;
   justify-content: center;
   gap: 2em;
-  color: design.$white;
+  color: $white;
 }
 
 .splashscreen-message {
