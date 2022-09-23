@@ -16,17 +16,19 @@ class CategoriesPage extends Component {
 
   componentDidMount() {
     axios
-      .get('http://localhost:3001/api/v1/categories')
+      .get('http://localhost:3001/api/v1/categories', {
+        headers: {
+          Authorization: `${localStorage.getItem('token')}`,
+        },
+      })
       .then((response) => {
-        console.log(response.data);
         this.setState({
           catsList: response.data,
         });
       })
       .catch((error) => {
-        console.log(error);
         this.setState({
-          error: 'Error retrieving data',
+          error: error.message,
         });
       });
     }
