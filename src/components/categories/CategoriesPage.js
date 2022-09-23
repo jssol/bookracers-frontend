@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { nanoid } from '@reduxjs/toolkit';
 import axios from 'axios';
 import CategoryCard from './CategoryCard';
-import './category.scss';
+import './category.css';
 
 class CategoriesPage extends Component {
   constructor(props) {
@@ -29,19 +29,22 @@ class CategoriesPage extends Component {
           error: 'Error retrieving data',
         });
       });
-  }
-
-  render() {
-    const { catsList, error } = this.state;
+    }
+    
+    render() {
+      const { catsList, error } = this.state;
     return (
+
       <div className="container">
         {catsList.length
-          ? catsList.map((cat) => (
-            <CategoryCard key={nanoid()} category={cat} />
+          ? catsList.map((cat,index) => (
+            <CategoryCard key={nanoid()} category={cat} index={index} />
+
           ))
           : null}
         {error ? <div>{error}</div> : null}
       </div>
+  
     );
   }
 }
