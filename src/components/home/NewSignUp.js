@@ -5,7 +5,6 @@ import { signup } from '../../redux/user/signupSlice';
 
 function NewSignUp() {
   const dispatch = useDispatch();
-  let state = useSelector((state) => state.signup.user);
   const authenticated = useSelector((state) => state.signup.authenticated);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -20,7 +19,7 @@ function NewSignUp() {
     }
   }, [navigate, authenticated]);
 
-  state = {
+  const state = {
     name,
     email,
     password,

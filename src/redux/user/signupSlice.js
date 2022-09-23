@@ -5,16 +5,23 @@ const BASE_URL = 'http://localhost:3001/api/v1/';
 
 const initialState = {
   loading: false,
-  user: {},
+  user: '',
   error: '',
   authenticated: false,
 };
 
-export const signup = createAsyncThunk('user/signup', (credentials) => axios
+const setToken = (token) => {
+  localStorage.setItem('token', token);
+};
+
+export const signup = createAsyncThunk('user/signup', (user) => axios
   .post(`${BASE_URL}signup`, {
-    user: credentials,
+    user,
   })
-  .then((response) => response.data));
+  .then((response) => {
+    setToken(response.data.jwt);
+    return response.data;
+  }));
 
 const signupSlice = createSlice({
   name: 'userSignup',

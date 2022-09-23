@@ -10,6 +10,11 @@ function MotorcycleDetails() {
     async function fetchData() {
       const response = await axios.get(
         `http://localhost:3001/api/v1/motorcycles/${params.id}`,
+        {
+          headers: {
+            Authorization: `${localStorage.getItem('token')}`,
+          },
+        },
       );
       setMotorcycle(response.data);
     }
