@@ -13,22 +13,22 @@ function MotorcycleList() {
     async function fetchData() {
       const response = await axios.get(
         `http://localhost:3001/api/v1/categories/${params.id}`,
+        {
+          headers: {
+            Authorization: `${localStorage.getItem('token')}`,
+          },
+        },
       );
       setMotorcycles(response.data);
-      console.log(response.data);
     }
     fetchData();
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div className="container">
-      <h2>
-        Category
-        {params.id}
-      </h2>
       {motorcycles.length
         ? motorcycles.map((motorcycle) => (
-          <MotorcycleCard key={nanoid()} motorcycle={motorcycle} />
+          <MotorcycleCard key={nanoid()} motor={motorcycle} />
         ))
         : null}
     </div>
