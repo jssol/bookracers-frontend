@@ -9,7 +9,12 @@ function MotorcycleDetails() {
   useEffect(() => {
     async function fetchData() {
       const response = await axios.get(
-        `http://localhost:3001/api/v1/motorcycles/${params.id}`,
+        `http://localhost:3001/api/v1/motorcycles/${params.mid}`,
+        {
+          headers: {
+            Authorization: `${localStorage.getItem('token')}`,
+          },
+        },
       );
       setMotorcycle(response.data);
     }
