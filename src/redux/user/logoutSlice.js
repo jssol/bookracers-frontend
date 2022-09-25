@@ -15,7 +15,7 @@ const remToken = (token) => {
 };
 
 export const logout = createAsyncThunk('user/logout', (user) => axios
-  .post(`${BASE_URL}logout`, {
+  .get(`${BASE_URL}logout`, {
     user,
   })
   .then((response) => {
