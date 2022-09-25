@@ -29,9 +29,9 @@ function Navbar() {
           <li>
             <NavLink
               className={(navData) => (navData.isActive ? 'active link' : 'link')}
-              to="/"
+              to="/categories"
             >
-              Racers
+              RACERS
             </NavLink>
           </li>
           <li>
