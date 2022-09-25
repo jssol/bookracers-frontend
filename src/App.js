@@ -9,6 +9,7 @@ import NewSignUp from './components/home/NewSignUp';
 import CategoriesPage from './components/categories/CategoriesPage';
 import MotorcycleList from './components/motorcycles/MotorcycleList';
 import MotorcycleDetails from './components/motorcycles/MotorcycleDetails';
+import Navbar from './components/navigation/Navbar';
 
 const App = () => (
   <Routes>
@@ -22,6 +23,7 @@ const App = () => (
     <Route path="/categories" element={<CategoriesPage />} />
     <Route path="/categories/:id" element={<MotorcycleList />} />
     <Route path="/categories/:id/motorcycles/:mid" element={<MotorcycleDetails />} />
+    <Route path="*" element={<Navbar />} />
   </Routes>
 );
 
