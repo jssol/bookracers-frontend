@@ -14,6 +14,8 @@ function Navbar() {
     navigate('/');
   };
 
+  const isAdmin = localStorage.getItem('isAdmin');
+
   return (
     <nav className="navbar">
       <div className="logo-container">
@@ -35,17 +37,9 @@ function Navbar() {
           <li>
             <NavLink
               className={(navData) => (navData.isActive ? 'active link' : 'link')}
-              to="/add_motorcycle"
+              to="/reservations"
             >
-              Add Motorcycle
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              className={(navData) => (navData.isActive ? 'active link' : 'link')}
-              to="/add_category"
-            >
-              Add Category
+              Reserve
             </NavLink>
           </li>
           <li>
@@ -53,42 +47,49 @@ function Navbar() {
               className={(navData) => (navData.isActive ? 'active link' : 'link')}
               to="/reservations"
             >
-              Reservations
+              My Reservations
             </NavLink>
           </li>
+          {isAdmin === 'true' && (
+            <>
+              <li>
+                <NavLink
+                  className={(navData) => (navData.isActive ? 'active link' : 'link')}
+                  to="/add_motorcycle"
+                >
+                  Add Motorcycle
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  className={(navData) => (navData.isActive ? 'active link' : 'link')}
+                  to="/add_category"
+                >
+                  Add Category
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  className={(navData) => (navData.isActive ? 'active link' : 'link')}
+                  to="/delete_motorcycle"
+                >
+                  Delete a Motorcycle
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  className={(navData) => (navData.isActive ? 'active link' : 'link')}
+                  to="/delete_category"
+                >
+                  Delete a Category
+                </NavLink>
+              </li>
+            </>
+          )}
           <li>
-            <NavLink
-              className={(navData) => (navData.isActive ? 'active link' : 'link')}
-              to="/new_reservations"
-            >
-              New Reservations
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              className={(navData) => (navData.isActive ? 'active link' : 'link')}
-              to="/delete_motorcycle"
-            >
-              Delete a Motorcycle
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              className={(navData) => (navData.isActive ? 'active link' : 'link')}
-              to="/delete_category"
-            >
-              Delete a Category
-            </NavLink>
-          </li>
-          <li>
-            <button
-              type="button"
-              className="logoutBtn"
-              onClick={clickHandler}
-            >
+            <button type="button" className="logoutBtn" onClick={clickHandler}>
               LOGOUT
             </button>
-
           </li>
         </ul>
       </div>

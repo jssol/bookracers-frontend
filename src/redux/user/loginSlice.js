@@ -14,11 +14,16 @@ const setToken = (token) => {
   localStorage.setItem('token', token);
 };
 
+const setAdmin = (details) => {
+  localStorage.setItem('isAdmin', details);
+};
+
 export const login = createAsyncThunk('user/login', (user) => axios
   .post(`${BASE_URL}login`, {
     user,
   })
   .then((response) => {
+    setAdmin(response.data.user.admin);
     setToken(response.data.jwt);
     return response.data;
   }));
