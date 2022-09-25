@@ -10,42 +10,44 @@ const initialState = {
   authenticated: false,
 };
 
-const setToken = (token) => {
-  localStorage.setItem('token', token);
+const remToken = (token) => {
+  localStorage.removeItem('token', token);
 };
 
-const setAdmin = (details) => {
-  localStorage.setItem('isAdmin', details);
+const remIsAdmin = (isAdmin) => {
+  localStorage.removeItem('isAdmin', isAdmin);
 };
 
-export const login = createAsyncThunk('user/login', (user) => axios
-  .post(`${BASE_URL}login`, {
+export const logout = createAsyncThunk('user/logout', (user) => axios
+  .get(`${BASE_URL}logout`, {
     user,
   })
   .then((response) => {
-    setAdmin(response.data.user.admin);
-    setToken(response.data.jwt);
+    localStorage.setItem('loggedOut', true);
+    remToken();
+    remIsAdmin();
+    window.location.reload();
     return response.data;
   }));
 
 const userSlice = createSlice({
-  name: 'userLogin',
+  name: 'userLogout',
   initialState,
   /* eslint-disable */
   extraReducers: (builder) => {
-    builder.addCase(login.pending, (state) => {
+    builder.addCase(logout.pending, (state) => {
       state.loading = true;
       state.user = {};
       state.error = '';
       state.authenticated = false;
     });
-    builder.addCase(login.fulfilled, (state, action) => {
+    builder.addCase(logout.fulfilled, (state) => {
       state.loading = false;
-      state.user = action.payload;
+      state.user = {};
       state.error = '';
-      state.authenticated = true;
+      state.authenticated = false;
     });
-    builder.addCase(login.rejected, (state, action) => {
+    builder.addCase(logout.rejected, (state, action) => {
       state.loading = false;
       state.user = {};
       state.error = action.error.message;

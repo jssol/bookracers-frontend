@@ -7,8 +7,7 @@ function NewLogin() {
   const dispatch = useDispatch();
   let state = useSelector((state) => state.login.user);
   const authenticated = useSelector((state) => state.login.authenticated);
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState('');
 
   const navigate = useNavigate();
 
@@ -19,8 +18,7 @@ function NewLogin() {
   }, [navigate, authenticated]);
 
   state = {
-    email,
-    password,
+    username,
   };
 
   const submitHandler = (e) => {
@@ -33,20 +31,11 @@ function NewLogin() {
       <form className="form-container" onSubmit={submitHandler}>
         <input
           type="text"
-          placeholder="Email"
-          name="email"
+          placeholder="Username"
+          name="username"
           className="form-input"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          name="password"
-          className="form-input"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
           required
         />
         <button type="submit" className="form-button button">
