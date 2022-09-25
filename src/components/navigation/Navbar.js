@@ -10,8 +10,8 @@ function Navbar() {
   const navigate = useNavigate();
 
   const clickHandler = () => {
-    navigate('/');
     dispatch(logout());
+    navigate('/');
   };
 
   return (

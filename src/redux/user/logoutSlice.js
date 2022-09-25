@@ -19,7 +19,9 @@ export const logout = createAsyncThunk('user/logout', (user) => axios
     user,
   })
   .then((response) => {
+    localStorage.setItem('loggedOut', true);
     remToken();
+    window.location.reload();
     return response.data;
   }));
 
