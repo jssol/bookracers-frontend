@@ -1,15 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Homemade+Apple&family=Poppins:wght@700&display=swap');
+
 .navBar {
-  position: relative;
+  position: fixed;
+  background: #fff;
+  top: 0;
+  height: 8vh;
+  left: 0;
+  width: 100vw;
 }
 
 .navBar button {
   position: fixed;
   left: 40px;
-  top: 40px;
+  top: 5px;
   z-index: 10;
   cursor: pointer;
-  background: transparent;
+  background: transparent!important;
   border: none;
+}
+
+.book-racerlink {
+  font-family: 'Homemade Apple', cursive;
+}
+
+.book-racerlink a {
+  color: #fff;
+  font-size: larger;
+}
+
+.book-racerlink a:hover {
+  color: #97bf0e;
 }
 
 .menuNav {
@@ -17,13 +37,16 @@
   list-style: none;
   position: fixed;
   top: 0;
-  background: grey;
+  background: rgba(0, 12, 0, 0.808);
+  backdrop-filter: blur(7px);
+  // background: rgb(129, 126, 126);
+  // background: rgb(111,111,111,0.5);
   left: 0;
   bottom: 0;
   height: 100vh;
   width: 0;
   overflow: hidden;
-  max-width: 290px;
+  // max-width: 290px;
   z-index: 9;
 }
 
@@ -46,14 +69,13 @@ a {
 
 .listbtn,
 .closebtn {
-  position: absolute;
-  top: 0;
+  // position: absolute;
+  // top: 0;
   font-size: 36px;
   color: rgb(129, 6, 6);
 }
 
-@media screen and (min-width: 768px) 
-{
+@media screen and (min-width: 768px) {
   .toggle {
     display: none;
   }

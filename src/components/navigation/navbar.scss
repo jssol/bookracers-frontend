@@ -62,3 +62,9 @@
   position: absolute;
   bottom: 1rem;
 }
+
+@media (max-width: 768px) {
+  .desktop-sidebar {
+    display: none;
+  }
+}
