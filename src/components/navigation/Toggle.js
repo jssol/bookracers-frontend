@@ -25,7 +25,7 @@ export default function Toggle() {
         )}
       </button>
       <ul className={`menuNav ${navbarOpen ? ' showMenu' : ''}`}>
-        <li>
+        <li className="book-racerlink">
           <Link
             to="/"
           >

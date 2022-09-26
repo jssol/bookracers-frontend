@@ -30,7 +30,7 @@ function MotorcycleList() {
     <div className="motorcycle-list">
       <Navbar />
       <Toggle />
-      <h2 className="model-header">LATEST MODELS</h2>
+      <h2 className="model-header m-header">LATEST MODELS</h2>
       <p className="model-header modelheader-ptag">Check out the latest models from our partners</p>
 
       {motorcycles.length
