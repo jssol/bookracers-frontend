@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { MdClose } from 'react-icons/md';
 import { FiMenu } from 'react-icons/fi';
+import './toggle.scss';
 
 export default function Toggle() {
   const [navbarOpen, setNavbarOpen] = useState(false);
