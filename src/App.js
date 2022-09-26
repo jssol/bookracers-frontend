@@ -8,6 +8,8 @@ import NewSignUp from './components/home/NewSignUp';
 import CategoriesPage from './components/categories/CategoriesPage';
 import MotorcycleList from './components/motorcycles/MotorcycleList';
 import MotorcycleDetails from './components/motorcycles/MotorcycleDetails';
+import MyReservations from './components/reservations/myreservations';
+import Reservation from './components/reservations/reservation';
 
 const App = () => (
   <>
@@ -23,6 +25,9 @@ const App = () => (
         path="/categories/:id/motorcycles/:mid"
         element={<MotorcycleDetails />}
       />
+      <Route path="/myreservations" element={<MyReservations />} />
+      <Route path="/categories/:id/motorcycles/:mid/reservation" element={<Reservation />} />
+      <Route path="reservation" element={<Reservation />} />
     </Routes>
   </>
 );
