@@ -4,6 +4,8 @@ import { nanoid } from '@reduxjs/toolkit';
 import axios from 'axios';
 import MotorcycleCard from './MotorcycleCard';
 import './motorcycle.scss';
+import Navbar from '../navigation/Navbar';
+import Toggle from '../navigation/Toggle';
 
 function MotorcycleList() {
   const params = useParams();
@@ -26,6 +28,8 @@ function MotorcycleList() {
 
   return (
     <div className="motorcycle-list">
+      <Navbar />
+      <Toggle />
       <h2 className="model-header">LATEST MODELS</h2>
       <p className="model-header modelheader-ptag">Check out the latest models from our partners</p>
 
