@@ -11,7 +11,23 @@ import './reservation.css';
 
 const Reservation = () => {
   const [startDate, setStartDate] = useState(new Date());
+  const [endDate, setEndDate] = useState(new Date());
+  const [city, setCity] = useState('');
+  const [message, setMessage] = useState('');
+  const [reserved, setReserved] = useState(false);
+  const params = useParams();
+  const dispatch = useDispatch();
+
+  const motorD = useSelector((state) => state.motor.motor);
+
+  const userInfo = JSON.parse(localStorage.getItem('user'));
+
+  const d = totalPrice(startDate, endDate);
+  const result = d * motorD.rental_price;
+
  
+  };
+
   return (
     <div className="wrapper">
       <div>
