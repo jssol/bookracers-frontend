@@ -63,7 +63,7 @@ function Navbar() {
               <li>
                 <NavLink
                   className={(navData) => (navData.isActive ? 'active link' : 'link')}
-                  to="/add_category"
+                  to="/addcategory"
                 >
                   Add Category
                 </NavLink>

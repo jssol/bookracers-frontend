@@ -39,6 +39,10 @@ a {
   background-position: center;
 }
 
+.add-category-form {
+  border: 2px solid red;
+}
+
 @media screen and (min-width: 768px) {
   .category-container {
     display: grid;
@@ -56,5 +60,21 @@ a {
     border-radius: 4px;
     border: 2px solid #e7e7e7;
     background-color: #e7e7e7;
+  }
+
+  .add-category-form {
+    width: 50%;
+    margin: auto;
+    margin-top: 10%;
+    justify-content: center;
+    padding: 2%;
+    border-color: hsl(74deg, 85%, 41%);
+
+  }
+  
+  .add-category-form h2 {
+    width: fit-content;
+    margin: auto;
+
   }
 }
