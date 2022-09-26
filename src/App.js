@@ -27,7 +27,6 @@ const App = () => (
       />
       <Route path="/myreservations" element={<MyReservations />} />
       <Route path="/categories/:id/motorcycles/:mid/reservation" element={<Reservation />} />
-      <Route path="reservation" element={<Reservation />} />
     </Routes>
   </>
 );
