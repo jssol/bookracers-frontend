@@ -31,6 +31,29 @@ const Reservation = () => {
   }, [params, dispatch]);
 
 
+  const submitHandler = (e) => {
+    e.preventDefault();
+    if (result > 0) {
+      if (startDate === '' || endDate === '' || city === '') {
+        setMessage('Please fill all the fields');
+      } else {
+        const reservebike = {
+          motorcycle_id: params.mid,
+          user_id: userInfo,
+          start_date: startDate,
+          end_date: endDate,
+          total_price: result,
+          city,
+        };
+        dispatch(reservation(reservebike));
+        setReserved(true);
+        setMessage('Motorcycle reserved successfully');
+      }
+    } else {
+      setMessage('End date must be greater than start date');
+    }
+ 
+  };
   return (
     <div className="wrapper">
       <div>
