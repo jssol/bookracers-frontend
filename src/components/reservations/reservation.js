@@ -30,7 +30,6 @@ const Reservation = () => {
     }
   }, [params, dispatch]);
 
-
   const submitHandler = (e) => {
     e.preventDefault();
     if (result > 0) {
@@ -52,7 +51,6 @@ const Reservation = () => {
     } else {
       setMessage('End date must be greater than start date');
     }
- 
   };
   return (
     <div className="wrapper">
