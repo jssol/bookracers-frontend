@@ -10,6 +10,9 @@ import MotorcycleList from './components/motorcycles/MotorcycleList';
 import MotorcycleDetails from './components/motorcycles/MotorcycleDetails';
 import Navbar from './components/navigation/Navbar';
 import Toggle from './components/navigation/Toggle';
+import MyReservations from './components/reservations/myreservations';
+import Reservation from './components/reservations/reservation';
+
 
 const App = () => (
   <>
@@ -27,6 +30,8 @@ const App = () => (
       />
       <Route path="*" element={<Navbar />} />
       <Route path="/toggle" element={<Toggle />} />
+      <Route path="/myreservations" element={<MyReservations />} />
+      <Route path="/categories/:id/motorcycles/:mid/reservation" element={<Reservation />} />
     </Routes>
   </>
 );

@@ -11,6 +11,9 @@
   top: 0;
   left: 0;
   background-color: #fff;
+  z-index: 100;
+  transition: 0.5s;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 .logo {

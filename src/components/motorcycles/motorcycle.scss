@@ -113,6 +113,66 @@ a {
   height: 100%;
 }
 
+.motor-spec-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: 50%;
+  background-color: #fff;
+  padding: 1rem;
+  font-size: 20px;
+}
+
+.motor-spec-details li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  margin-bottom: 1rem;
+}
+
+.motorcycle-details-container {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  flex-flow: wrap;
+  padding: 30px 0;
+}
+
+.motorcycle-details .model {
+  font-weight: bold;
+  font-family: inherit;
+  color: #071a1a;
+  text-align: right;
+  background: #fff;
+}
+
+.motor-image {
+  width: 100%;
+  max-width: 300px;
+  height: 300px;
+  object-fit: cover;
+}
+
+.reserve-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 50px;
+  background-color: #98c110;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+}
+
 @media screen and (min-width: 768px) {
   .container {
     display: grid;
