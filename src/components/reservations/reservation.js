@@ -11,49 +11,7 @@ import './reservation.css';
 
 const Reservation = () => {
   const [startDate, setStartDate] = useState(new Date());
-  const [endDate, setEndDate] = useState(new Date());
-  const [city, setCity] = useState('');
-  const [message, setMessage] = useState('');
-  const [reserved, setReserved] = useState(false);
-  const params = useParams();
-  const dispatch = useDispatch();
-
-  const motorD = useSelector((state) => state.motor.motor);
-
-  const userInfo = JSON.parse(localStorage.getItem('user'));
-
-  const d = totalPrice(startDate, endDate);
-  const result = d * motorD.rental_price;
-
-  React.useEffect(() => {
-    if (params !== 'undefined') {
-      dispatch(motorDetail(params.mid));
-    }
-  }, [params, dispatch]);
-
-  const submitHandler = (e) => {
-    e.preventDefault();
-    if (result > 0) {
-      if (startDate === '' || endDate === '' || city === '') {
-        setMessage('Please fill all the fields');
-      } else {
-        const reserve = {
-          motorcycle_id: params.mid,
-          user_id: userInfo,
-          start_date: startDate,
-          end_date: endDate,
-          total_price: result,
-          city,
-        };
-        dispatch(reservation(reserve));
-        setReserved(true);
-        setMessage('Motorcycle reserved successfully');
-      }
-    } else {
-      setMessage('End date must be greater than start date');
-    }
-  };
-
+ 
   return (
     <div className="wrapper">
       <div>
