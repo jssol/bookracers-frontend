@@ -45,11 +45,39 @@ export default function Toggle() {
         </li>
 
         <li>
-          Add Category
+
+          <NavLink
+            to="/"
+            activeClassName="active-link"
+            onClick={() => closeMenu()}
+            exact
+          >
+
+            Add Category
+          </NavLink>
         </li>
         <li>
-          Reservations
+          <NavLink
+            to="/"
+            activeClassName="active-link"
+            onClick={() => closeMenu()}
+            exact
+          >
+            Reservations
+          </NavLink>
         </li>
+
+        <li>
+          <NavLink
+            to="/"
+            activeClassName="active-link"
+            onClick={() => closeMenu()}
+            exact
+          >
+            New Reservations
+          </NavLink>
+        </li>
+
       </ul>
     </nav>
   );
