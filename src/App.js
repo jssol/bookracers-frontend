@@ -26,7 +26,7 @@ const App = () => (
         element={<MotorcycleDetails />}
       />
       <Route path="*" element={<Navbar />} />
-      <Route path="/toggle" element={<Toggle />} />  
+      <Route path="/toggle" element={<Toggle />} />
     </Routes>
   </>
 );
