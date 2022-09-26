@@ -8,7 +8,7 @@ import NewSignUp from './components/home/NewSignUp';
 import CategoriesPage from './components/categories/CategoriesPage';
 import MotorcycleList from './components/motorcycles/MotorcycleList';
 import MotorcycleDetails from './components/motorcycles/MotorcycleDetails';
-import AddCategory from './components/categories/addcategory';
+import AddCategory from './components/crud/AddCategory';
 
 const App = () => (
   <>
@@ -26,6 +26,7 @@ const App = () => (
         path="/categories/:id/motorcycles/:mid"
         element={<MotorcycleDetails />}
       />
+      <Route path="/add_category" element={<AddCategory />} />
     </Routes>
   </>
 );

@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { useNavigate, Link } from 'react-router-dom';
+import { delcat } from '../../redux/category/delcatSlice';
 import './category.css';
 import catimage1 from '../assets/images/cat1.png';
 import catimage2 from '../assets/images/cat2.png';
@@ -23,18 +25,37 @@ function CategoryCard({ category, index }) {
     catimage6,
     catimage7,
     catimage8,
-    catimage9];
+    catimage9,
+  ];
+
+  const navigate = useNavigate();
+  const state = {
+    id,
+  };
+
+  const dispatch = useDispatch();
+  const delHandler = () => {
+    dispatch(delcat(state));
+    navigate('/categories');
+  };
 
   return (
-    <Link to={`/categories/${id}`}>
-      <div className="card">
-        <div>
-          <img src={arr[index]} alt=" " className="card-img" />
+    <div>
+      <Link to={`/categories/${id}`}>
+        <div className="card">
+          <div>
+            <img src={arr[index]} alt=" " className="card-img" />
+          </div>
+          <h3>{catname}</h3>
         </div>
-
-        <h3>{catname}</h3>
-      </div>
-    </Link>
+      </Link>
+      {localStorage.getItem('isAdmin') === 'true' ? (
+        <button type="button" className="delCatBtn" onClick={delHandler}>
+          <strong>-</strong>
+          Delete
+        </button>
+      ) : null}
+    </div>
   );
 }
 

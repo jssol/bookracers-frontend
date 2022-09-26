@@ -35,8 +35,13 @@ function MotorcycleList() {
         <p className="model-header modelheader-ptag">
           Check out the latest models from our partners
         </p>
-        {localStorage.getItem('isAdmin') === "true" 
-        ? <button className='addbikebutton'><strong>+</strong>Add Motorcycle</button> : null}
+        {localStorage.getItem('isAdmin') === 'true'
+          ? (
+            <button type="button" className="addMotorBtn">
+              <strong>+</strong>
+              Add Motorcycle
+            </button>
+          ) : null}
         {motorcycles.length
           ? motorcycles.map((motorcycle) => (
             <MotorcycleCard key={nanoid()} motor={motorcycle} />
