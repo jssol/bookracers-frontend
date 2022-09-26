@@ -16,12 +16,12 @@ export default function Toggle() {
   };
 
   return (
-    <nav className="navBar">
+    <nav className="navBar toggle">
       <button type="button" onClick={handleToggle}>
         {navbarOpen ? (
-          <MdClose />
+          <MdClose className="closebtn" />
         ) : (
-          <FiMenu />
+          <FiMenu className="listbtn" />
         )}
       </button>
       <ul className={`menuNav ${navbarOpen ? ' showMenu' : ''}`}>
