@@ -15,10 +15,11 @@ function MotorcycleCard({ motor }) {
     <>
       <div className="model-name">
         <p>
-          {catname}
-        </p>
-        <p>
+          Category
+          {' '}
           {id}
+          {' '}
+          {catname}
         </p>
       </div>
 
@@ -26,7 +27,7 @@ function MotorcycleCard({ motor }) {
 
         {motorcycles.length
           ? motorcycles.map((el) => (
-            <Link to={`/categories/${params.id}/motorcycles/${id}`} key={nanoid()}>
+            <Link to={`/categories/${params.id}/motorcycles/${el.id}`} key={nanoid()}>
               <div className="card card-content">
                 <div className="img-div">
                   { el.image && (<img src={el.image} alt="" className="imgSize" />) }
