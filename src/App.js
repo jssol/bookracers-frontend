@@ -8,6 +8,7 @@ import CategoriesPage from './components/categories/CategoriesPage';
 import MotorcycleList from './components/motorcycles/MotorcycleList';
 import MotorcycleDetails from './components/motorcycles/MotorcycleDetails';
 import Navbar from './components/navigation/Navbar';
+import Toggle from './components/navigation/Toggle';
 
 const App = () => (
   <Routes>
@@ -20,6 +21,7 @@ const App = () => (
     <Route path="/categories/:id" element={<MotorcycleList />} />
     <Route path="/categories/:id/motorcycles/:id" element={<MotorcycleDetails />} />
     <Route path="*" element={<Navbar />} />
+    <Route path="/toggle" element={<Toggle />} />
   </Routes>
 );
 
