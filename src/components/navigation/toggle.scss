@@ -15,12 +15,21 @@
   top: 5px;
   z-index: 10;
   cursor: pointer;
-  background: transparent!important;
+  background: transparent !important;
   border: none;
 }
 
 .book-racerlink {
   font-family: 'Homemade Apple', cursive;
+}
+
+a {
+  display: block;
+  padding: 10px 40px;
+  text-decoration: none;
+  color: #111;
+  text-transform: uppercase;
+  font-weight: bold;
 }
 
 .book-racerlink a {
@@ -52,15 +61,6 @@
 
 .menuNav.showMenu {
   width: 100%;
-}
-
-a {
-  display: block;
-  padding: 10px 40px;
-  text-decoration: none;
-  color: #111;
-  text-transform: uppercase;
-  font-weight: bold;
 }
 
 .menuNav li:first-child {

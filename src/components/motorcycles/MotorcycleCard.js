@@ -43,6 +43,9 @@ function MotorcycleCard({ motor }) {
                     {el.id}
                   </li>
                 </ul>
+                <div>
+                  <i className="uil uil-star" />
+                </div>
                 <ul className="socials">
                   <li><FaFacebook /></li>
                   <li><FaInstagram /></li>
