@@ -24,9 +24,12 @@ const Reservation = () => {
 
   const d = totalPrice(startDate, endDate);
   const result = d * motorD.rental_price;
+  React.useEffect(() => {
+    if (params !== 'undefined') {
+      dispatch(motorDetail(params.mid));
+    }
+  }, [params, dispatch]);
 
- 
-  };
 
   return (
     <div className="wrapper">
