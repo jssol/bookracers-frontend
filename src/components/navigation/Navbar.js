@@ -71,7 +71,7 @@ function Navbar() {
               <li>
                 <NavLink
                   className={(navData) => (navData.isActive ? 'active link' : 'link')}
-                  to="/delete_motorcycle"
+                  to="/del_motorcycle"
                 >
                   Delete a Motorcycle
                 </NavLink>
@@ -79,7 +79,7 @@ function Navbar() {
               <li>
                 <NavLink
                   className={(navData) => (navData.isActive ? 'active link' : 'link')}
-                  to="/delete_category"
+                  to="/del_category"
                 >
                   Delete a Category
                 </NavLink>
