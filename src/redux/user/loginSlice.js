@@ -14,6 +14,10 @@ const setToken = (token) => {
   localStorage.setItem('token', token);
 };
 
+const loggedIntUser = (user) => {
+  localStorage.setItem('user', JSON.stringify(user));
+};
+
 const setAdmin = (details) => {
   localStorage.setItem('isAdmin', details);
 };
@@ -25,6 +29,7 @@ export const login = createAsyncThunk('user/login', (user) => axios
   .then((response) => {
     setAdmin(response.data.user.admin);
     setToken(response.data.jwt);
+    loggedIntUser(response.data.user.id);
     return response.data;
   }));
 

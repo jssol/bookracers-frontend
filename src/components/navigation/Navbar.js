@@ -19,7 +19,7 @@ function Navbar() {
   return (
     <nav className="navbar">
       <div className="logo-container">
-        <Link to="/">
+        <Link to="/categories">
           <img src={picture} className="logo" alt="logo" />
           <p className="logo-name">BookRacers</p>
         </Link>
@@ -37,15 +37,7 @@ function Navbar() {
           <li>
             <NavLink
               className={(navData) => (navData.isActive ? 'active link' : 'link')}
-              to="/reservations"
-            >
-              Reserve
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              className={(navData) => (navData.isActive ? 'active link' : 'link')}
-              to="/reservations"
+              to="/myreservations"
             >
               My Reservations
             </NavLink>
