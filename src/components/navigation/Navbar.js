@@ -4,7 +4,7 @@ import picture from '../assets/images/vespa.png';
 import './navbar.scss';
 
 const Navbar = () => (
-  <nav className="navbar">
+  <nav className="navbar desktop-sidebar">
     <div className="logo-container">
       <Link
         to="/"
