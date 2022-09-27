@@ -66,9 +66,16 @@ const MyReservations = () => {
                       <tr key={nanoid()}>
                         <td>{reservation.user_id}</td>
                         <td>{reservation.id}</td>
-                        <Link to={`/motorcycles/${reservation.motorcycle_id}`}>
-                        <td>{reservation.motorcycle_id}</td>
-                        </Link>
+                        <td>
+                          <Link
+                            to={`/categories/:id/motorcycles/${reservation.motorcycle_id}`}
+                            style={{
+                              color: '#97bf36', border: '1px solid #97bf36', padding: '0.5rem',
+                            }}
+                          >
+                            {reservation.motorcycle_id}
+                          </Link>
+                        </td>
                         <td>{reservation.start_date}</td>
                         <td>{reservation.end_date}</td>
                         <td>{reservation.total_price}</td>
