@@ -35,14 +35,12 @@ function CategoryCard({ category, index }) {
   };
 
   return (
-    <div>
+    <div className="card">
       <Link to={`/categories/${id}`}>
-        <div className="card">
-          <div>
-            <img src={arr[index]} alt=" " className="card-img" />
-          </div>
-          <h3>{catname}</h3>
+        <div>
+          <img src={arr[index]} alt=" " className="card-img" />
         </div>
+        <h3>{catname}</h3>
       </Link>
       {localStorage.getItem('isAdmin') === 'true' ? (
         <button
@@ -51,7 +49,6 @@ function CategoryCard({ category, index }) {
           value={id}
           onClick={(e) => delHandler(e.target.value)}
         >
-          <strong>-</strong>
           Delete
         </button>
       ) : null}

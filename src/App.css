@@ -1,3 +1,7 @@
+html {
+  background-color: #e4e5e9;
+}
+
 .wrapper {
   display: grid;
   grid-template-columns: 20vw 80vw;

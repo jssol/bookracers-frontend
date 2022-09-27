@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addcat } from '../../redux/category/addcatSlice';
+import './addcategory.scss';
+import Navbar from '../navigation/Navbar';
 
 function AddCategory() {
   const dispatch = useDispatch();
@@ -23,29 +25,37 @@ function AddCategory() {
 
   return (
     <>
-      <form className="form-container" onSubmit={submitHandler}>
-        <input
-          type="text"
-          placeholder="Category Name"
-          name="catname"
-          className="form-input"
-          value={catname}
-          onChange={(e) => setCatname(e.target.value)}
-          required
-        />
-        <input
-          type="file"
-          placeholder="Image"
-          name="image"
-          className="form-input"
-          value={img}
-          onChange={(e) => setImg(e.target.value)}
-          required
-        />
-        <button type="submit" className="form-button button">
-          Add Category
-        </button>
-      </form>
+      <div className="wrapper">
+        <div>
+          <Navbar />
+        </div>
+        <div className="container">
+          <h1>Add Category</h1>
+          <form className="form-container" onSubmit={submitHandler}>
+            <input
+              type="text"
+              placeholder="Category Name"
+              name="catname"
+              className="form-input"
+              value={catname}
+              onChange={(e) => setCatname(e.target.value)}
+              required
+            />
+            <input
+              type="file"
+              placeholder="Image"
+              name="image"
+              className="form-input"
+              value={img}
+              onChange={(e) => setImg(e.target.value)}
+              required
+            />
+            <button type="submit" className="form-button button">
+              Add
+            </button>
+          </form>
+        </div>
+      </div>
     </>
   );
 }
