@@ -40,34 +40,41 @@ const MyReservations = () => {
         <div className="myres-container">
           <h1>My Reservations</h1>
           <div className="reservations">
-            <div className="reservations-header">
-              <p> User ID</p>
-              <p> Reservation ID</p>
-              <p> Motorcycle ID</p>
-              <p> Start Date</p>
-              <p> End Date</p>
-              <p> Total Price</p>
-              <p> City</p>
-            </div>
-            <div>
-              {loading === false
-                && Object.values(myreservations)
-                  .filter((reservation) => reservation.user_id === user)
-                  .map((reservation) => (
-                    <div className="myreservation" key={nanoid()}>
-                      <p>{reservation.user_id}</p>
-                      <p>{reservation.id}</p>
-                      <p>{reservation.motorcycle_id}</p>
-                      <p>{reservation.start_date}</p>
-                      <p>{reservation.end_date}</p>
-                      <p>
-                        $
-                        {reservation.total_price}
-                      </p>
-                      <p>{reservation.city}</p>
-                    </div>
-                  ))}
-            </div>
+            <table>
+              <thead>
+                <tr>
+                  <th>User ID</th>
+                  <th>Reservation ID</th>
+                  <th>Motorcycle ID</th>
+                  <th>Start Date</th>
+                  <th>End Date</th>
+                  <th>Total Price</th>
+                  <th>City</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                {loading === false
+                  && Object.values(myreservations)
+                    .filter((reservation) => reservation.user_id === user)
+                    .map((reservation) => (
+                      <tr key={nanoid()}>
+                        <td>{reservation.user_id}</td>
+                        <td>{reservation.id}</td>
+                        <td>{reservation.motorcycle_id}</td>
+                        <td>{reservation.start_date}</td>
+                        <td>{reservation.end_date}</td>
+                        <td>{reservation.total_price}</td>
+                        <td>{reservation.city}</td>
+                        <td>
+                          <button type="button" className="cancelBtn">
+                            Cancel
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
