@@ -153,7 +153,8 @@ a {
   object-fit: cover;
 }
 
-.reserve-btn {
+.reserve-btn,
+.reserved-btn {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -167,6 +168,11 @@ a {
   margin-top: 1rem;
   margin-bottom: 1rem;
   border-radius: 10px;
+}
+
+.reserved-btn {
+  background-color: red;
+  color: #fff;
 }
 
 @media screen and (min-width: 768px) {

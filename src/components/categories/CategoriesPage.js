@@ -44,8 +44,8 @@ class CategoriesPage extends Component {
           </div>
           <div className="category-container">
             {catsList.length
-              ? catsList.map((cat, index) => (
-                <CategoryCard key={nanoid()} category={cat} index={index} />
+              ? catsList.map((cat) => (
+                <CategoryCard key={nanoid()} category={cat} />
               ))
               : null}
             {error ? <div>{error}</div> : null}

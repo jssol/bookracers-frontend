@@ -4,29 +4,29 @@ import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { delcat } from '../../redux/category/delcatSlice';
 import './category.css';
-import catimage1 from '../assets/images/cat1.png';
-import catimage2 from '../assets/images/cat2.png';
-import catimage3 from '../assets/images/cat3.png';
-import catimage4 from '../assets/images/cat4.png';
-import catimage5 from '../assets/images/cat5.png';
-import catimage6 from '../assets/images/cat6.png';
-import catimage7 from '../assets/images/cat7.png';
-import catimage8 from '../assets/images/cat8.png';
-import catimage9 from '../assets/images/cat9.png';
+// import catimage1 from '../assets/images/cat1.png';
+// import catimage2 from '../assets/images/cat2.png';
+// import catimage3 from '../assets/images/cat3.png';
+// import catimage4 from '../assets/images/cat4.png';
+// import catimage5 from '../assets/images/cat5.png';
+// import catimage6 from '../assets/images/cat6.png';
+// import catimage7 from '../assets/images/cat7.png';
+// import catimage8 from '../assets/images/cat8.png';
+// import catimage9 from '../assets/images/cat9.png';
 
-function CategoryCard({ category, index }) {
-  const { catname, id } = category;
-  const arr = [
-    catimage1,
-    catimage2,
-    catimage3,
-    catimage4,
-    catimage5,
-    catimage6,
-    catimage7,
-    catimage8,
-    catimage9,
-  ];
+function CategoryCard({ category }) {
+  const { catname, id, image } = category;
+  // const arr = [
+  //   catimage1,
+  //   catimage2,
+  //   catimage3,
+  //   catimage4,
+  //   catimage5,
+  //   catimage6,
+  //   catimage7,
+  //   catimage8,
+  //   catimage9,
+  // ];
 
   const dispatch = useDispatch();
   const delHandler = (value) => {
@@ -38,7 +38,18 @@ function CategoryCard({ category, index }) {
     <div className="card">
       <Link to={`/categories/${id}`}>
         <div>
-          <img src={arr[index]} alt=" " className="card-img" />
+          <img
+            src={image.record.img}
+            alt=" "
+            className="card-img"
+            style={{
+              display: 'block',
+              width: '150px',
+              height: '150px',
+              marginLeft: 'auto',
+              marginRight: 'auto',
+            }}
+          />
         </div>
         <h3>{catname}</h3>
       </Link>
@@ -60,16 +71,22 @@ CategoryCard.defaultProps = {
   category: {
     catname: '',
     id: 0,
+    image: '',
   },
-  index: 0,
+  // index: 0,
 };
 
 CategoryCard.propTypes = {
   category: PropTypes.shape({
     catname: PropTypes.string,
     id: PropTypes.number,
+    image: PropTypes.shape({
+      record: PropTypes.shape({
+        img: PropTypes.string,
+      }),
+    }),
   }),
-  index: PropTypes.number,
+  // index: PropTypes.number,
 };
 
 export default CategoryCard;

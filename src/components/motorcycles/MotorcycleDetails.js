@@ -29,7 +29,17 @@ function MotorcycleDetails() {
       </div>
       <div className="motorcycle-details-container">
         <div className="motor-image">
-          <img src={motorcycle.image} alt={motorcycle.brand} />
+          <img
+            src={motorcycle.image}
+            alt={motorcycle.brand}
+            style={{
+              display: 'block',
+              width: '150px',
+              height: '150px',
+              marginLeft: 'auto',
+              marginRight: 'auto',
+            }}
+          />
         </div>
 
         <div className="motor-info">
@@ -55,9 +65,12 @@ function MotorcycleDetails() {
             </li>
           </ul>
           <div>
-            <Link to={`/categories/${params.id}/motorcycles/${params.mid}/reservation`}>
-              <button type="button" className="reserve-btn">Reserve</button>
-            </Link>
+            {motorcycle.reserved
+              ? (<button type="button" className="reserved-btn" disabled>Reserved</button>) : (
+                <Link to={`/categories/${params.id}/motorcycles/${params.mid}/reservation`}>
+                  <button type="button" className="reserve-btn">Reserve</button>
+                </Link>
+              )}
           </div>
         </div>
 

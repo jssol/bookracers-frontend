@@ -12,6 +12,11 @@ const initialState = {
 export const addmotor = createAsyncThunk('motorcycle/addmotor', (motorcycle) => axios
   .post(`${BASE_URL}add_motorcycle`, {
     motorcycle,
+  },
+  {
+    headers: {
+      Authorization: `${localStorage.getItem('token')}`,
+    },
   })
   .then((response) => response.data));
 

@@ -9,32 +9,39 @@ const initialState = {
   error: '',
 };
 
-export const delcat = createAsyncThunk('motorcycle/delcat', (motorcycle) => axios
-  .delete(`${BASE_URL}del_motorcycle`, {
-    motorcycle,
-  }, {
-    headers: {
-      Authorization: `${localStorage.getItem('token')}`,
-    },
-  })
-  .then((response) => response.data));
+export const updatemotor = createAsyncThunk(
+  'motorcycle/updatemotor',
+  (motorcycle) => axios
+    .patch(
+      `${BASE_URL}update_motorcycle`,
+      {
+        motorcycle,
+      },
+      {
+        headers: {
+          Authorization: `${localStorage.getItem('token')}`,
+        },
+      },
+    )
+    .then((response) => response.data),
+);
 
 const motorcycleSlice = createSlice({
-  name: 'userDelMotor',
+  name: 'userUpdateMotor',
   initialState,
   /* eslint-disable */
   extraReducers: (builder) => {
-    builder.addCase(delcat.pending, (state) => {
+    builder.addCase(updatemotor.pending, (state) => {
       state.loading = true;
       state.motorcycle = {};
       state.error = '';
     });
-    builder.addCase(delcat.fulfilled, (state, action) => {
+    builder.addCase(updatemotor.fulfilled, (state, action) => {
       state.loading = false;
       state.motorcycle = action.payload;
       state.error = '';
     });
-    builder.addCase(delcat.rejected, (state, action) => {
+    builder.addCase(updatemotor.rejected, (state, action) => {
       state.loading = false;
       state.motorcycle = {};
       state.error = action.error.message;

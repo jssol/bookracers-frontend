@@ -7,9 +7,10 @@ import addcatReducer from './category/addcatSlice';
 import delcatReducer from './category/delcatSlice';
 import addmotorReducer from './motorcycle/addmotorSlice';
 import delmotorReducer from './motorcycle/delmotorSlice';
+import updatemotorReducer from './motorcycle/updatemotorSlice';
 import motorSlice from './motorcycles/motorSlice';
 import reservationSlice from './reservations/reservationSlice';
-import delresSlice from './reservations/delresSlice';
+import delresReducer from './reservations/delresSlice';
 
 const logger = createLogger();
 
@@ -22,9 +23,10 @@ const store = configureStore({
     delcat: delcatReducer,
     addmotor: addmotorReducer,
     delmotor: delmotorReducer,
+    updatemotor: updatemotorReducer,
     motor: motorSlice,
     reservation: reservationSlice,
-    myreservation: delresSlice,
+    myreservation: delresReducer,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware(findNonSerializableValue).concat(logger), // eslint-disable-line
 });
