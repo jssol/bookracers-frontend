@@ -9,7 +9,7 @@ import CategoriesPage from './components/categories/CategoriesPage';
 import MotorcycleList from './components/motorcycles/MotorcycleList';
 import MotorcycleDetails from './components/motorcycles/MotorcycleDetails';
 import AddCategory from './components/crud/AddCategory';
-import MyReservations from './components/reservations/myreservations';
+import MyReservations from './components/reservations/MyReservations';
 import Reservation from './components/reservations/reservation';
 
 const App = () => (
@@ -29,7 +29,7 @@ const App = () => (
         element={<MotorcycleDetails />}
       />
       <Route path="/add_category" element={<AddCategory />} />
-      <Route path="/myreservations" element={<MyReservations />} />
+      <Route path="/my_reservations" element={<MyReservations />} />
       <Route path="/categories/:id/motorcycles/:mid/reservation" element={<Reservation />} />
     </Routes>
   </>

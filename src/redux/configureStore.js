@@ -24,9 +24,7 @@ const store = configureStore({
     motor: motorSlice,
     reservation: reservationSlice,
   },
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware(
-    findNonSerializableValue,
-  ).concat(logger),
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware(findNonSerializableValue).concat(logger), // eslint-disable-line
 });
 
 export default store;

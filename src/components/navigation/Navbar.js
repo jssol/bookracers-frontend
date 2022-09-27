@@ -37,7 +37,7 @@ function Navbar() {
           <li>
             <NavLink
               className={(navData) => (navData.isActive ? 'active link' : 'link')}
-              to="/myreservations"
+              to="/my_reservations"
             >
               My Reservations
             </NavLink>
