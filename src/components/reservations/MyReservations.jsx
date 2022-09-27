@@ -31,7 +31,6 @@ const MyReservations = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const delHandler = (value) => {
-    console.log(value);
     dispatch(delres({ id: value }));
     navigate('/categories');
   };
@@ -78,7 +77,7 @@ const MyReservations = () => {
                         </td>
                         <td>{reservation.start_date}</td>
                         <td>{reservation.end_date}</td>
-                        <td>{reservation.total_price}</td>
+                        <td>$ {reservation.total_price}</td>
                         <td>{reservation.city}</td>
                         <td>
                           <button
