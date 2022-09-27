@@ -13,7 +13,6 @@ import Toggle from './components/navigation/Toggle';
 import MyReservations from './components/reservations/myreservations';
 import Reservation from './components/reservations/reservation';
 
-
 const App = () => (
   <>
     <Routes>
