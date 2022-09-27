@@ -9,6 +9,7 @@ import addmotorReducer from './motorcycle/addmotorSlice';
 import delmotorReducer from './motorcycle/delmotorSlice';
 import motorSlice from './motorcycles/motorSlice';
 import reservationSlice from './reservations/reservationSlice';
+import delresSlice from './reservations/delresSlice';
 
 const logger = createLogger();
 
@@ -23,6 +24,7 @@ const store = configureStore({
     delmotor: delmotorReducer,
     motor: motorSlice,
     reservation: reservationSlice,
+    myreservation: delresSlice,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware(findNonSerializableValue).concat(logger), // eslint-disable-line
 });

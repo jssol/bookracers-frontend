@@ -1,18 +1,15 @@
 import React, { useState, useEffect } from 'react';
-// import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { useNavigate, Link } from 'react-router-dom';
 import { nanoid } from '@reduxjs/toolkit';
 import axios from 'axios';
-// import { fetchMyRes } from '../../redux/reservations/myreserveSlice';
 import Navbar from '../navigation/Navbar';
 import './myreservations.scss';
+import { delres } from '../../redux/reservations/delresSlice';
 
 const MyReservations = () => {
-  // const dispatch = useDispatch();
   const [loading, setLoading] = useState(true);
   const [myreservations, setMyReservations] = useState([]);
-  // const myreservations = useSelector(
-  //   (state) => state.myreservation.myreservation,
-  // );
   const user = JSON.parse(localStorage.getItem('user'));
 
   useEffect(() => {
@@ -30,6 +27,14 @@ const MyReservations = () => {
     }
     fetchData();
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const delHandler = (value) => {
+    console.log(value);
+    dispatch(delres({ id: value }));
+    navigate('/categories');
+  };
 
   return (
     <>
@@ -61,13 +66,20 @@ const MyReservations = () => {
                       <tr key={nanoid()}>
                         <td>{reservation.user_id}</td>
                         <td>{reservation.id}</td>
+                        <Link to={`/motorcycles/${reservation.motorcycle_id}`}>
                         <td>{reservation.motorcycle_id}</td>
+                        </Link>
                         <td>{reservation.start_date}</td>
                         <td>{reservation.end_date}</td>
                         <td>{reservation.total_price}</td>
                         <td>{reservation.city}</td>
                         <td>
-                          <button type="button" className="cancelBtn">
+                          <button
+                            type="button"
+                            className="cancelBtn"
+                            value={reservation.id}
+                            onClick={(e) => delHandler(e.target.value)}
+                          >
                             Cancel
                           </button>
                         </td>
