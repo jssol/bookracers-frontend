@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import { MdClose } from 'react-icons/md';
 import { FiMenu } from 'react-icons/fi';
+import { logout } from '../../redux/user/logoutSlice';
 import './toggle.scss';
 
 export default function Toggle() {
   const [navbarOpen, setNavbarOpen] = useState(false);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleToggle = () => {
     setNavbarOpen((prev) => !prev);
@@ -15,9 +19,14 @@ export default function Toggle() {
     setNavbarOpen(false);
   };
 
+  const clickHandler = () => {
+    dispatch(logout());
+    navigate('/');
+  };
+
   return (
     <nav className="navBar toggle">
-      <button type="button" onClick={handleToggle}>
+      <button type="button" className="btn" onClick={handleToggle}>
         {navbarOpen ? (
           <MdClose className="closebtn" />
         ) : (
@@ -29,13 +38,36 @@ export default function Toggle() {
           <Link
             to="/"
           >
-            Book Racers
+            BookRacers
           </Link>
         </li>
+
+        <li>
+          <NavLink
+            to="/categories"
+            activeClassName="active-link"
+            onClick={() => closeMenu()}
+            exact
+          >
+            RACERS
+          </NavLink>
+        </li>
+
+        <li>
+          <NavLink
+            to="/myreservations"
+            activeClassName="active-link"
+            onClick={() => closeMenu()}
+            exact
+          >
+            My Reservations
+          </NavLink>
+        </li>
+
         <li>
 
           <NavLink
-            to="/"
+            to="/add_motorcycle"
             activeClassName="active-link"
             onClick={() => closeMenu()}
             exact
@@ -47,35 +79,41 @@ export default function Toggle() {
         <li>
 
           <NavLink
-            to="/"
+            to="/add_category"
             activeClassName="active-link"
             onClick={() => closeMenu()}
             exact
           >
-
             Add Category
           </NavLink>
         </li>
+
         <li>
           <NavLink
-            to="/"
+            to="/delete_motorcycle"
             activeClassName="active-link"
             onClick={() => closeMenu()}
             exact
           >
-            Reservations
+            Delete a Motorcycle
           </NavLink>
         </li>
 
         <li>
           <NavLink
-            to="/"
+            to="/delete_category"
             activeClassName="active-link"
             onClick={() => closeMenu()}
             exact
           >
-            New Reservations
+            Delete a Category
           </NavLink>
+        </li>
+
+        <li>
+          <button type="button" className="logoutBtn" onClick={clickHandler}>
+            LOGOUT
+          </button>
         </li>
 
       </ul>
