@@ -111,7 +111,7 @@ export default function Toggle() {
         </li>
 
         <li>
-          <button type="button" className="logoutBtn" onClick={clickHandler}>
+          <button type="button" className="logout" onClick={clickHandler}>
             LOGOUT
           </button>
         </li>
