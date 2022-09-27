@@ -115,7 +115,6 @@ export default function Toggle() {
             LOGOUT
           </button>
         </li>
-
       </ul>
     </nav>
   );
