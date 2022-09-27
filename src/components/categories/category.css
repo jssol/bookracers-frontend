@@ -39,10 +39,16 @@ a {
   background-position: center;
 }
 
+.add-category-form {
+  border: 2px solid red;
+}
+
 @media screen and (min-width: 768px) {
   .category-container {
     display: grid;
-    grid-template-columns: 2fr 2fr 2fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 74%;
+    margin: auto;
   }
 
   .card {
@@ -54,5 +60,31 @@ a {
     border-radius: 4px;
     border: 2px solid #e7e7e7;
     background-color: #e7e7e7;
+  }
+
+  .add-category-form {
+    width: 50%;
+    margin: auto;
+    margin-top: 10%;
+    justify-content: center;
+    padding: 2%;
+    border-color: hsl(74deg, 85%, 41%);
+  }
+
+  .add-category-form h2 {
+    width: fit-content;
+    margin: auto;
+  }
+
+  .delCatBtn {
+    top: 15px;
+    right: 30px;
+    margin: 0.25rem 0.125rem;
+    border-radius: 0.25rem;
+    padding: 0.375rem 0.75rem;
+    font-weight: 400;
+    font-size: 1rem;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 1px rgba(0, 0, 0, 0.075);
+    background-color: #f9c847;
   }
 }

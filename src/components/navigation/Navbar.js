@@ -47,33 +47,9 @@ function Navbar() {
               <li>
                 <NavLink
                   className={(navData) => (navData.isActive ? 'active link' : 'link')}
-                  to="/add_motorcycle"
-                >
-                  Add Motorcycle
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  className={(navData) => (navData.isActive ? 'active link' : 'link')}
                   to="/add_category"
                 >
                   Add Category
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  className={(navData) => (navData.isActive ? 'active link' : 'link')}
-                  to="/delete_motorcycle"
-                >
-                  Delete a Motorcycle
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  className={(navData) => (navData.isActive ? 'active link' : 'link')}
-                  to="/delete_category"
-                >
-                  Delete a Category
                 </NavLink>
               </li>
             </>
