@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-import { useNavigate, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { delcat } from '../../redux/category/delcatSlice';
 import './category.css';
 import catimage1 from '../assets/images/cat1.png';
@@ -28,15 +28,10 @@ function CategoryCard({ category, index }) {
     catimage9,
   ];
 
-  const navigate = useNavigate();
-  const state = {
-    id,
-  };
-
   const dispatch = useDispatch();
-  const delHandler = () => {
-    dispatch(delcat(state));
-    navigate('/categories');
+  const delHandler = (value) => {
+    dispatch(delcat({ id: value }));
+    window.location.reload();
   };
 
   return (
@@ -50,7 +45,12 @@ function CategoryCard({ category, index }) {
         </div>
       </Link>
       {localStorage.getItem('isAdmin') === 'true' ? (
-        <button type="button" className="delCatBtn" onClick={delHandler}>
+        <button
+          type="button"
+          className="delCatBtn"
+          value={id}
+          onClick={(e) => delHandler(e.target.value)}
+        >
           <strong>-</strong>
           Delete
         </button>
