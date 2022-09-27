@@ -23,6 +23,12 @@ function AddCategory() {
     navigate('/categories');
   };
 
+  const [file, setFile] = useState(undefined);
+
+  const handleChange = (event) => {
+    setFile(URL.createObjectURL(event.target.files[0]));
+  };
+
   return (
     <>
       <div className="wrapper">
@@ -43,13 +49,30 @@ function AddCategory() {
             />
             <input
               type="file"
+              accept="image/*"
               placeholder="Image"
               name="image"
               className="form-input"
               value={img}
-              onChange={(e) => setImg(e.target.value)}
+              onChange={(e) => {
+                setImg(e.target.value);
+                handleChange(e);
+              }}
               required
             />
+            {file && (
+              <img
+                src={file}
+                style={{
+                  display: 'block',
+                  width: '150px',
+                  height: '150px',
+                  marginLeft: 'auto',
+                  marginRight: 'auto',
+                }}
+                alt="category avatar"
+              />
+            )}
             <button type="submit" className="form-button button">
               Add
             </button>
