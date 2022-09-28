@@ -10,7 +10,6 @@ const newotorcycle = createAsyncThunk(
       },
     });
     const res = await response.data;
-    console(res);
     return res;
   },
 );
