@@ -17,7 +17,7 @@ function Navbar() {
   const isAdmin = localStorage.getItem('isAdmin');
 
   return (
-    <nav className="navbar">
+    <nav className="navbar desktop-sidebar">
       <div className="logo-container">
         <Link to="/categories">
           <img src={picture} className="logo" alt="logo" />
