@@ -71,8 +71,14 @@ function MotorcycleList() {
         <h2 className="model-header m-header">LATEST MODELS</h2>
         <p className="model-header modelheader-ptag">Check out the latest models from our partners</p>
       </div>
-
       <div>
+      {localStorage.getItem('isAdmin') === 'true'
+          ? (
+            <button type="button" className="addMotorBtn" onClick={handleShow}>
+              <strong>+</strong>
+              Add Motorcycle
+            </button>
+          ) : null}
         {motorcycles.length
           ? motorcycles.map((motorcycle) => (
             <MotorcycleCard key={nanoid()} motor={motorcycle} />
@@ -81,7 +87,7 @@ function MotorcycleList() {
       </div>
       <Modal show={show} onHide={handleClose} className="modal">
         <Modal.Header>
-          <div className="bg-dark p-3">
+          <div className="addMotorBtn">
             <CloseButton variant="white" />
           </div>
           <Modal.Title><h2>Add New Motocycle</h2></Modal.Title>
