@@ -13,14 +13,14 @@ function AddCategory() {
 
   const navigate = useNavigate();
 
-  const state = {
-    catname,
-    img,
-  };
-
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch(addcat(state));
+    const formdata = new FormData();
+    formdata.append('category[catname]', catname);
+    formdata.append('category[image]', img);
+
+    console.log(formdata);
+    dispatch(addcat(formdata));
     navigate('/categories');
   };
 
@@ -55,9 +55,8 @@ function AddCategory() {
               placeholder="Image"
               name="image"
               className="form-input"
-              value={img}
               onChange={(e) => {
-                setImg(e.target.value);
+                setImg(e.target.files[0]);
                 handleChange(e);
               }}
               required
