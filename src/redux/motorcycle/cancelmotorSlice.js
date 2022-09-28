@@ -12,7 +12,6 @@ const initialState = {
 export const cancelmotor = createAsyncThunk(
   'motorcycle/cancelmotor',
   async (motorcycle) => {
-    console.log(motorcycle);
     const response = await axios.patch(
       `${BASE_URL}update_motorcycle`,
       motorcycle,

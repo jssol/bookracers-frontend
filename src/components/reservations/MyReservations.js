@@ -40,7 +40,6 @@ const MyReservations = () => {
 
   const cancelHandler = (value) => {
     const state = { id: value, reserved: false };
-    console.log(state);
     dispatch(cancelmotor(state));
   };
 
@@ -98,8 +97,8 @@ const MyReservations = () => {
                             className="cancelBtn"
                             value={reservation.id}
                             onClick={(e) => {
-                              cancelHandler(e.target.value);
                               delHandler(e.target.value);
+                              cancelHandler(reservation.motorcycle_id);
                             }}
                           >
                             Cancel

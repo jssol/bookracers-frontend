@@ -10,13 +10,11 @@ const initialState = {
 };
 
 export const addcat = createAsyncThunk('category/addcat', async (category) => {
-  console.log(category);
   const response = await axios.post(`${BASE_URL}add_category`, category, {
     headers: {
       Authorization: `${localStorage.getItem('token')}`,
     },
   });
-  console.log(response.data);
   return response.data;
 });
 

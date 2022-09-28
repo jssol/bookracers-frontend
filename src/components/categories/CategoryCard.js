@@ -21,18 +21,33 @@ function CategoryCard({ category }) {
     <div className="card">
       <Link to={`/categories/${id}`}>
         <div>
-          <img
-            src={image}
-            alt=" "
-            className="card-img"
-            style={{
-              display: 'block',
-              width: '150px',
-              height: '150px',
-              marginLeft: 'auto',
-              marginRight: 'auto',
-            }}
-          />
+          {picture ? (
+            <img
+              src={`http://localhost:3001${picture}`}
+              alt=" "
+              className="card-img"
+              style={{
+                display: 'block',
+                width: '150px',
+                height: '150px',
+                marginLeft: 'auto',
+                marginRight: 'auto',
+              }}
+            />
+          ) : (
+            <img
+              src={image}
+              alt=" "
+              className="card-img"
+              style={{
+                display: 'block',
+                width: '150px',
+                height: '150px',
+                marginLeft: 'auto',
+                marginRight: 'auto',
+              }}
+            />
+          )}
         </div>
         <h3>{catname}</h3>
       </Link>
