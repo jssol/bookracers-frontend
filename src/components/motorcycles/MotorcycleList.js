@@ -2,10 +2,27 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { nanoid } from '@reduxjs/toolkit';
 import axios from 'axios';
+import Swiper from 'swiper/bundle';
 import MotorcycleCard from './MotorcycleCard';
 import './motorcycle.scss';
 import Navbar from '../navigation/Navbar';
 import Toggle from '../navigation/Toggle';
+import 'swiper/css/bundle';
+
+const swiper = new Swiper('.swiper', {
+  direction: 'vertical',
+  loop: true,
+  pagination: {
+    el: '.swiper-pagination',
+  },
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+  scrollbar: {
+    el: '.swiper-scrollbar',
+  },
+});
 
 function MotorcycleList() {
   const params = useParams();
