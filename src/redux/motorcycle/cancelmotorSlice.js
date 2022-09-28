@@ -9,8 +9,8 @@ const initialState = {
   error: '',
 };
 
-export const updatemotor = createAsyncThunk(
-  'motorcycle/updatemotor',
+export const cancelmotor = createAsyncThunk(
+  'motorcycle/cancelmotor',
   async (motorcycle) => {
     console.log(motorcycle);
     const response = await axios.patch(
@@ -27,21 +27,21 @@ export const updatemotor = createAsyncThunk(
 );
 
 const motorcycleSlice = createSlice({
-  name: 'userUpdateMotor',
+  name: 'userCancelMotor',
   initialState,
   /* eslint-disable */
   extraReducers: (builder) => {
-    builder.addCase(updatemotor.pending, (state) => {
+    builder.addCase(cancelmotor.pending, (state) => {
       state.loading = true;
       state.motorcycle = {};
       state.error = '';
     });
-    builder.addCase(updatemotor.fulfilled, (state, action) => {
+    builder.addCase(cancelmotor.fulfilled, (state, action) => {
       state.loading = false;
       state.motorcycle = action.payload;
       state.error = '';
     });
-    builder.addCase(updatemotor.rejected, (state, action) => {
+    builder.addCase(cancelmotor.rejected, (state, action) => {
       state.loading = false;
       state.motorcycle = {};
       state.error = action.error.message;

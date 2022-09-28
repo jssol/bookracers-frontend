@@ -56,7 +56,8 @@ const Reservation = () => {
   };
 
   const updateHandler = (value) => {
-    dispatch(updatemotor({ id: value, reserved: true }));
+    const state = { id: value, reserved: true };
+    dispatch(updatemotor(state));
   };
 
   return (

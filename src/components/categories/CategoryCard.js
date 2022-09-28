@@ -6,19 +6,23 @@ import { delcat } from '../../redux/category/delcatSlice';
 import './category.css';
 
 function CategoryCard({ category }) {
-  const { catname, id, image } = category;
+  const {
+    catname, id, image, picture,
+  } = category;
   const dispatch = useDispatch();
   const delHandler = (value) => {
     dispatch(delcat({ id: value }));
     window.location.reload();
   };
 
+  console.log(category);
+
   return (
     <div className="card">
       <Link to={`/categories/${id}`}>
         <div>
           <img
-            src={image.record.img}
+            src={image}
             alt=" "
             className="card-img"
             style={{
@@ -51,6 +55,7 @@ CategoryCard.defaultProps = {
     catname: '',
     id: 0,
     image: '',
+    picture: '',
   },
 };
 
@@ -58,11 +63,8 @@ CategoryCard.propTypes = {
   category: PropTypes.shape({
     catname: PropTypes.string,
     id: PropTypes.number,
-    image: PropTypes.shape({
-      record: PropTypes.shape({
-        img: PropTypes.string,
-      }),
-    }),
+    image: PropTypes.string,
+    picture: PropTypes.string,
   }),
 };
 
