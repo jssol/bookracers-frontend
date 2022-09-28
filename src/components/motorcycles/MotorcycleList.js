@@ -24,7 +24,7 @@ function MotorcycleList() {
   const [model, setModel] = useState('');
   const [year, setYear] = useState(new Date());
   const [brand, setBrand] = useState('');
-  const [image, setImage] = useState('');
+  const [picture, setPicture] = useState('');
   const [rentalPrice, setRentalPrice] = useState('');
   const dispatch = useDispatch();
 
@@ -45,20 +45,21 @@ function MotorcycleList() {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    if (model === '' || year === '' || brand === '' || image === '' || rentalPrice === '') {
+    if (model === '' || year === '' || brand === '' || picture === '' || rentalPrice === '') {
       setMessage('Please fill all the fields');
     } else {
       // imge upload
-      const formData = new FormData();
-      formData.append('post[image]', image);
-      formData.append('post[model]', model);
-      formData.append('post[year]', year);
-      formData.append('post[brand]', brand);
-      formData.append('post[rental_price]', rentalPrice);
-      formData.append('post[category_id]', params.id);
-      console.log(formData);
-      dispatch(newotorcycle(formData));
-      // addedMotor(true);
+      // setReserved(false);
+      const motorData = new FormData();
+      motorData.append('motorcycle[picture]', picture);
+      motorData.append('motorcycle[model]', model);
+      motorData.append('motorcycle[year]', year);
+      motorData.append('motorcycle[brand]', brand);
+      motorData.append('motorcycle[rental_price]', rentalPrice);
+      motorData.append('motorcycle[category_id]', params.id);
+      motorData.append('motorcycle[reserved]', false);
+      dispatch(newotorcycle(motorData));
+      window.location.reload();
       setMessage('Motorcycle created successfully');
     }
   };
@@ -71,8 +72,17 @@ function MotorcycleList() {
         <h2 className="model-header m-header">LATEST MODELS</h2>
         <p className="model-header modelheader-ptag">Check out the latest models from our partners</p>
       </div>
+      {message === 'Motorcycle created successfully' ? (
+        <div className="alert alert-success" role="alert">
+          {message}
+        </div>
+      ) : (
+        <div className="alert alert-danger" role="alert">
+          {message}
+        </div>
+      )}
       <div>
-      {localStorage.getItem('isAdmin') === 'true'
+        {localStorage.getItem('isAdmin') === 'true'
           ? (
             <button type="button" className="addMotorBtn" onClick={handleShow}>
               <strong>+</strong>
@@ -136,11 +146,9 @@ function MotorcycleList() {
               type="file"
               name="image"
               className="form-input"
-              value={image}
-              onChange={(e) => setImage(e.target.value)}
+              onChange={(e) => setPicture(e.target.files[0])}
               required
             />
-            <input type="hidden" name="category" value={params.id} />
             <Button
               type="submit"
               variant="success"
