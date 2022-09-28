@@ -24,6 +24,8 @@ export default function Toggle() {
     navigate('/');
   };
 
+  const isAdmin = localStorage.getItem('isAdmin');
+
   return (
     <nav className="navBar toggle">
       <button type="button" className="btn" onClick={handleToggle}>
@@ -35,19 +37,15 @@ export default function Toggle() {
       </button>
       <ul className={`menuNav ${navbarOpen ? ' showMenu' : ''}`}>
         <li className="book-racerlink">
-          <Link
-            to="/"
-          >
-            BookRacers
-          </Link>
+          <Link to="/categories">BookRacers</Link>
         </li>
 
         <li>
           <NavLink
             to="/categories"
-            activeClassName="active-link"
+            className="active-link"
             onClick={() => closeMenu()}
-            exact
+            exact="true"
           >
             RACERS
           </NavLink>
@@ -55,66 +53,37 @@ export default function Toggle() {
 
         <li>
           <NavLink
-            to="/myreservations"
-            activeClassName="active-link"
+            to="/my_reservations"
+            className="active-link"
             onClick={() => closeMenu()}
-            exact
+            exact="true"
           >
             My Reservations
           </NavLink>
         </li>
 
-        <li>
-
-          <NavLink
-            to="/add_motorcycle"
-            activeClassName="active-link"
-            onClick={() => closeMenu()}
-            exact
-          >
-            Add Motorcycle
-          </NavLink>
-        </li>
-
-        <li>
-
-          <NavLink
-            to="/add_category"
-            activeClassName="active-link"
-            onClick={() => closeMenu()}
-            exact
-          >
-            Add Category
-          </NavLink>
-        </li>
-
-        <li>
-          <NavLink
-            to="/delete_motorcycle"
-            activeClassName="active-link"
-            onClick={() => closeMenu()}
-            exact
-          >
-            Delete a Motorcycle
-          </NavLink>
-        </li>
-
-        <li>
-          <NavLink
-            to="/delete_category"
-            activeClassName="active-link"
-            onClick={() => closeMenu()}
-            exact
-          >
-            Delete a Category
-          </NavLink>
-        </li>
+        {isAdmin === 'true' && (
+          <>
+            <li>
+              <NavLink
+                className={(navData) => (navData.isActive ? 'active link' : 'link')}
+                to="/add_category"
+              >
+                Add Category
+              </NavLink>
+            </li>
+          </>
+        )}
 
         <li>
           <button type="button" className="logout" onClick={clickHandler}>
             LOGOUT
           </button>
         </li>
+        <br />
+        <p className="copyright" style={{ color: '#fff' }}>
+          &copy; Racers@Microverse 2022
+        </p>
       </ul>
     </nav>
   );

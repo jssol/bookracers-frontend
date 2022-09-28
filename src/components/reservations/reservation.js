@@ -7,6 +7,7 @@ import motorDetail from '../../redux/motorcycles/detail.service';
 import reservation from '../../redux/reservations/reservation.service';
 import totalPrice from '../../helpers/dateHandler';
 import Navbar from '../navigation/Navbar';
+import Toggle from '../navigation/Toggle';
 import './reservation.css';
 import { updatemotor } from '../../redux/motorcycle/updatemotorSlice';
 
@@ -62,6 +63,7 @@ const Reservation = () => {
     <div className="wrapper">
       <div>
         <Navbar />
+        <Toggle />
       </div>
       <div className="reservation-container">
         <h1>Make a Reservation</h1>

@@ -4,6 +4,10 @@
   padding: 2rem;
   border: 1px solid #f9c847;
   height: 80vh;
+
+  h1 {
+    margin: 1rem;
+  }
 }
 
 table,
@@ -36,11 +40,11 @@ table {
 // Mobile Version
 @media screen and (max-width: 768px) {
   .myres-container {
-    margin: 0;
     padding: 0;
     border: none;
-    width: 80vw;
+    width: 95%;
     font-size: 0.75rem;
+    margin: 5rem auto 1rem;
   }
 
   th,

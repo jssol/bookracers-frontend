@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 import Navbar from '../navigation/Navbar';
+import Toggle from '../navigation/Toggle';
 
 function MotorcycleDetails() {
   const params = useParams();
@@ -26,6 +27,7 @@ function MotorcycleDetails() {
     <div className="wrapper">
       <div>
         <Navbar />
+        <Toggle />
       </div>
       <div className="motorcycle-details-container">
         <div className="motor-image">

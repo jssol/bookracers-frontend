@@ -35,11 +35,13 @@ function MotorcycleList() {
         <p className="model-header modelheader-ptag">Check out the latest models from our partners</p>
       </div>
 
-      {motorcycles.length
-        ? motorcycles.map((motorcycle) => (
-          <MotorcycleCard key={nanoid()} motor={motorcycle} />
-        ))
-        : null}
+      <div>
+        {motorcycles.length
+          ? motorcycles.map((motorcycle) => (
+            <MotorcycleCard key={nanoid()} motor={motorcycle} />
+          ))
+          : null}
+      </div>
     </div>
   );
 }

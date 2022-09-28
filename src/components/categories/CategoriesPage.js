@@ -4,6 +4,7 @@ import axios from 'axios';
 import CategoryCard from './CategoryCard';
 import './category.css';
 import Navbar from '../navigation/Navbar';
+import Toggle from '../navigation/Toggle';
 
 class CategoriesPage extends Component {
   constructor(props) {
@@ -41,6 +42,7 @@ class CategoriesPage extends Component {
         <div className="wrapper">
           <div>
             <Navbar />
+            <Toggle />
           </div>
           <div className="category-container">
             {catsList.length

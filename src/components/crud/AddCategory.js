@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { addcat } from '../../redux/category/addcatSlice';
 import './addcategory.scss';
 import Navbar from '../navigation/Navbar';
+import Toggle from '../navigation/Toggle';
 
 function AddCategory() {
   const dispatch = useDispatch();
@@ -34,6 +35,7 @@ function AddCategory() {
       <div className="wrapper">
         <div>
           <Navbar />
+          <Toggle />
         </div>
         <div className="container">
           <h1>Add Category</h1>

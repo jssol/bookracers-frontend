@@ -23,7 +23,7 @@ function MotorcycleCard({ motor }) {
         </p>
       </div>
 
-      <div className="container">
+      <div className="card-container">
 
         {motorcycles.length
           ? motorcycles.map((el) => (

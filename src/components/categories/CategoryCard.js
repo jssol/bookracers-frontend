@@ -4,30 +4,9 @@ import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { delcat } from '../../redux/category/delcatSlice';
 import './category.css';
-// import catimage1 from '../assets/images/cat1.png';
-// import catimage2 from '../assets/images/cat2.png';
-// import catimage3 from '../assets/images/cat3.png';
-// import catimage4 from '../assets/images/cat4.png';
-// import catimage5 from '../assets/images/cat5.png';
-// import catimage6 from '../assets/images/cat6.png';
-// import catimage7 from '../assets/images/cat7.png';
-// import catimage8 from '../assets/images/cat8.png';
-// import catimage9 from '../assets/images/cat9.png';
 
 function CategoryCard({ category }) {
   const { catname, id, image } = category;
-  // const arr = [
-  //   catimage1,
-  //   catimage2,
-  //   catimage3,
-  //   catimage4,
-  //   catimage5,
-  //   catimage6,
-  //   catimage7,
-  //   catimage8,
-  //   catimage9,
-  // ];
-
   const dispatch = useDispatch();
   const delHandler = (value) => {
     dispatch(delcat({ id: value }));
@@ -73,7 +52,6 @@ CategoryCard.defaultProps = {
     id: 0,
     image: '',
   },
-  // index: 0,
 };
 
 CategoryCard.propTypes = {
@@ -86,7 +64,6 @@ CategoryCard.propTypes = {
       }),
     }),
   }),
-  // index: PropTypes.number,
 };
 
 export default CategoryCard;

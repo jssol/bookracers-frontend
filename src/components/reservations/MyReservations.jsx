@@ -4,6 +4,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { nanoid } from '@reduxjs/toolkit';
 import axios from 'axios';
 import Navbar from '../navigation/Navbar';
+import Toggle from '../navigation/Toggle';
 import './myreservations.scss';
 import { delres } from '../../redux/reservations/delresSlice';
 
@@ -40,6 +41,7 @@ const MyReservations = () => {
       <div className="wrapper">
         <div>
           <Navbar />
+          <Toggle />
         </div>
         <div className="myres-container">
           <h1>My Reservations</h1>
@@ -47,9 +49,8 @@ const MyReservations = () => {
             <table>
               <thead>
                 <tr>
-                  <th>User ID</th>
-                  <th>Reservation ID</th>
-                  <th>Motorcycle ID</th>
+                  <th>Reserve ID</th>
+                  <th>Motor ID</th>
                   <th>Start Date</th>
                   <th>End Date</th>
                   <th>Total Price</th>
@@ -63,7 +64,6 @@ const MyReservations = () => {
                     .filter((reservation) => reservation.user_id === user)
                     .map((reservation) => (
                       <tr key={nanoid()}>
-                        <td>{reservation.user_id}</td>
                         <td>{reservation.id}</td>
                         <td>
                           <Link
@@ -77,7 +77,10 @@ const MyReservations = () => {
                         </td>
                         <td>{reservation.start_date}</td>
                         <td>{reservation.end_date}</td>
-                        <td>$ {reservation.total_price}</td>
+                        <td>
+                          $
+                          {reservation.total_price}
+                        </td>
                         <td>{reservation.city}</td>
                         <td>
                           <button
