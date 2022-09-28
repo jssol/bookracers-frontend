@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useParams } from 'react-router-dom';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import { useParams } from 'react-router-dom';
 import motorDetail from '../../redux/motorcycles/detail.service';
 import reservation from '../../redux/reservations/reservation.service';
 import totalPrice from '../../helpers/dateHandler';
 import Navbar from '../navigation/Navbar';
+import Toggle from '../navigation/Toggle';
 import './reservation.css';
+import { updatemotor } from '../../redux/motorcycle/updatemotorSlice';
 
 const Reservation = () => {
   const [startDate, setStartDate] = useState(new Date());
@@ -52,17 +54,29 @@ const Reservation = () => {
       setMessage('End date must be greater than start date');
     }
   };
+
+  const updateHandler = (value) => {
+    dispatch(updatemotor({ id: value, reserved: true }));
+  };
+
   return (
     <div className="wrapper">
       <div>
         <Navbar />
+        <Toggle />
       </div>
       <div className="reservation-container">
         <h1>Make a Reservation</h1>
         <form className="form-container form-reserve" onSubmit={submitHandler}>
-          {reserved && message === 'Motorcycle reserved successfully'
-            ? <div className="alert alert-success" role="alert">{message}</div>
-            : <div className="alert alert-danger" role="alert">{message}</div>}
+          {reserved && message === 'Motorcycle reserved successfully' ? (
+            <div className="alert alert-success" role="alert">
+              {message}
+            </div>
+          ) : (
+            <div className="alert alert-danger" role="alert">
+              {message}
+            </div>
+          )}
 
           <div className="form-inputs">
             <div className="city">
@@ -99,21 +113,25 @@ const Reservation = () => {
                 required
               />
             </div>
-
           </div>
           <p>
-            Total Price:
+            Total Price: $
             {result}
           </p>
           {reserved ? (
+            <button type="submit" className="btn-disbaled-reserve" disabled>
+              Submit
+            </button>
+          ) : (
             <button
               type="submit"
-              className="btn-disbaled-reserve"
-              disabled
+              className="btn-enable-reserve"
+              value={params.mid}
+              onClick={(e) => updateHandler(e.target.value)}
             >
               Submit
             </button>
-          ) : <button type="submit" className="btn-enable-reserve">Submit</button>}
+          )}
         </form>
       </div>
     </div>

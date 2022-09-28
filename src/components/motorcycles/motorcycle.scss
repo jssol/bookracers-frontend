@@ -19,9 +19,21 @@ a {
 }
 
 .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.card-container {
   display: grid;
-  grid-column-gap: 15px;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-column-gap: 15px;
+  grid-row-gap: 15px;
+  width: 100%;
+  padding: 15px;
+  height: 0;
 }
 
 .card.card-content {
@@ -32,6 +44,15 @@ a {
   width: 80%;
   height: auto;
   border: 1px solid #e7e7e7;
+}
+
+.motorcycle-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.motorcycle-list-header-container {
+  background: none;
 }
 
 .model {
@@ -57,6 +78,10 @@ a {
   text-align: center;
   padding: 0.5rem;
   font-family: 'Montserrat', sans-serif;
+}
+
+.m-header {
+  margin-top: 20%;
 }
 
 .content-id {
@@ -153,7 +178,8 @@ a {
   object-fit: cover;
 }
 
-.reserve-btn {
+.reserve-btn,
+.reserved-btn {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -169,6 +195,12 @@ a {
   border-radius: 10px;
 }
 
+.reserved-btn {
+  background-color: red;
+  color: #fff;
+}
+
+// Desktop Version
 @media screen and (min-width: 768px) {
   .container {
     display: grid;
@@ -185,6 +217,10 @@ a {
     align-items: center;
     width: 100%;
     position: relative;
+  }
+
+  .m-header {
+    margin-top: 0;
   }
 
   .addMotorBtn {

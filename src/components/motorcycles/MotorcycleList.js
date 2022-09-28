@@ -12,6 +12,7 @@ import './motorcycle.scss';
 import './modal.css';
 import Navbar from '../navigation/Navbar';
 import newotorcycle from '../../redux/motorcycle/motorcyle.service';
+import Toggle from '../navigation/Toggle';
 
 function MotorcycleList() {
   const params = useParams();
@@ -63,22 +64,16 @@ function MotorcycleList() {
   };
 
   return (
-    <div className="wrapper">
-      <div>
-        <Navbar />
+    <div className="motorcycle-list">
+      <Navbar />
+      <Toggle />
+      <div className="motorcycle-list-header-container">
+        <h2 className="model-header m-header">LATEST MODELS</h2>
+        <p className="model-header modelheader-ptag">Check out the latest models from our partners</p>
       </div>
-      <div className="motorcycle-list">
-        <h2 className="model-header">LATEST MODELS</h2>
-        <p className="model-header modelheader-ptag">
-          Check out the latest models from our partners
-        </p>
-        {localStorage.getItem('isAdmin') === 'true' ? (
-          <button type="button" className="addMotorBtn" onClick={handleShow}>
-            <strong>+</strong>
-            Add Motorcycle
-          </button>
-        ) : null}
-        { motorcycles.length
+
+      <div>
+        {motorcycles.length
           ? motorcycles.map((motorcycle) => (
             <MotorcycleCard key={nanoid()} motor={motorcycle} />
           ))
