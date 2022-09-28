@@ -7,6 +7,7 @@ import Navbar from '../navigation/Navbar';
 import Toggle from '../navigation/Toggle';
 import './myreservations.scss';
 import { delres } from '../../redux/reservations/delresSlice';
+import { cancelmotor } from '../../redux/motorcycle/cancelmotorSlice';
 
 const MyReservations = () => {
   const [loading, setLoading] = useState(true);
@@ -31,9 +32,15 @@ const MyReservations = () => {
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
   const delHandler = (value) => {
     dispatch(delres({ id: value }));
     navigate('/categories');
+  };
+
+  const cancelHandler = (value) => {
+    const state = { id: value, reserved: false };
+    dispatch(cancelmotor(state));
   };
 
   return (
@@ -69,7 +76,9 @@ const MyReservations = () => {
                           <Link
                             to={`/categories/:id/motorcycles/${reservation.motorcycle_id}`}
                             style={{
-                              color: '#97bf36', border: '1px solid #97bf36', padding: '0.5rem',
+                              color: '#97bf36',
+                              border: '1px solid #97bf36',
+                              padding: '0.5rem',
                             }}
                           >
                             {reservation.motorcycle_id}
@@ -87,7 +96,10 @@ const MyReservations = () => {
                             type="button"
                             className="cancelBtn"
                             value={reservation.id}
-                            onClick={(e) => delHandler(e.target.value)}
+                            onClick={(e) => {
+                              delHandler(e.target.value);
+                              cancelHandler(reservation.motorcycle_id);
+                            }}
                           >
                             Cancel
                           </button>

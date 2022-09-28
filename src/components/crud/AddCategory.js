@@ -9,25 +9,24 @@ import Toggle from '../navigation/Toggle';
 function AddCategory() {
   const dispatch = useDispatch();
   const [catname, setCatname] = useState('');
-  const [img, setImg] = useState('');
+  const [picture, setPicture] = useState('');
 
   const navigate = useNavigate();
 
-  const state = {
-    catname,
-    img,
-  };
-
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch(addcat(state));
+    const formdata = new FormData();
+    formdata.append('category[catname]', catname);
+    formdata.append('category[picture]', picture);
+
+    dispatch(addcat(formdata));
     navigate('/categories');
   };
 
   const [file, setFile] = useState(undefined);
 
-  const handleChange = (event) => {
-    setFile(URL.createObjectURL(event.target.files[0]));
+  const handleChange = (e) => {
+    setFile(URL.createObjectURL(e.target.files[0]));
   };
 
   return (
@@ -55,9 +54,8 @@ function AddCategory() {
               placeholder="Image"
               name="image"
               className="form-input"
-              value={img}
               onChange={(e) => {
-                setImg(e.target.value);
+                setPicture(e.target.files[0]);
                 handleChange(e);
               }}
               required

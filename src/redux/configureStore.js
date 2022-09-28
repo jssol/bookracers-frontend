@@ -8,6 +8,7 @@ import delcatReducer from './category/delcatSlice';
 import addmotorReducer from './motorcycle/addmotorSlice';
 import delmotorReducer from './motorcycle/delmotorSlice';
 import updatemotorReducer from './motorcycle/updatemotorSlice';
+import cancelmotorReducer from './motorcycle/cancelmotorSlice';
 import motorSlice from './motorcycles/motorSlice';
 import reservationSlice from './reservations/reservationSlice';
 import delresReducer from './reservations/delresSlice';
@@ -24,6 +25,7 @@ const store = configureStore({
     addmotor: addmotorReducer,
     delmotor: delmotorReducer,
     updatemotor: updatemotorReducer,
+    cancelmotor: cancelmotorReducer,
     motor: motorSlice,
     reservation: reservationSlice,
     myreservation: delresReducer,

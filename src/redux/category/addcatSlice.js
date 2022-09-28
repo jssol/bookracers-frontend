@@ -9,19 +9,14 @@ const initialState = {
   error: '',
 };
 
-export const addcat = createAsyncThunk('category/addcat', (category) => axios
-  .post(
-    `${BASE_URL}add_category`,
-    {
-      category,
+export const addcat = createAsyncThunk('category/addcat', async (category) => {
+  const response = await axios.post(`${BASE_URL}add_category`, category, {
+    headers: {
+      Authorization: `${localStorage.getItem('token')}`,
     },
-    {
-      headers: {
-        Authorization: `${localStorage.getItem('token')}`,
-      },
-    },
-  )
-  .then((response) => response.data));
+  });
+  return response.data;
+});
 
 const categorySlice = createSlice({
   name: 'userAddCat',
