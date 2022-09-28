@@ -23,7 +23,7 @@ function MotorcycleCard({ motor }) {
         </p>
       </div>
 
-      <div className="container">
+      <div className="card-container">
 
         {motorcycles.length
           ? motorcycles.map((el) => (
@@ -44,6 +44,9 @@ function MotorcycleCard({ motor }) {
                     {el.id}
                   </li>
                 </ul>
+                <div>
+                  <i className="uil uil-star" />
+                </div>
                 <ul className="socials">
                   <li><FaFacebook /></li>
                   <li><FaInstagram /></li>

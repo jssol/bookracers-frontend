@@ -1,4 +1,16 @@
+html {
+  background-color: #e4e5e9;
+}
+
 .wrapper {
   display: grid;
   grid-template-columns: 20vw 80vw;
+}
+
+@media screen and (max-width: 768px) {
+  .wrapper {
+    display: grid;
+    grid-template-columns: 100%;
+    margin: auto;
+  }
 }

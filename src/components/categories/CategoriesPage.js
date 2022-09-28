@@ -4,6 +4,7 @@ import axios from 'axios';
 import CategoryCard from './CategoryCard';
 import './category.css';
 import Navbar from '../navigation/Navbar';
+import Toggle from '../navigation/Toggle';
 
 class CategoriesPage extends Component {
   constructor(props) {
@@ -41,11 +42,12 @@ class CategoriesPage extends Component {
         <div className="wrapper">
           <div>
             <Navbar />
+            <Toggle />
           </div>
           <div className="category-container">
             {catsList.length
-              ? catsList.map((cat, index) => (
-                <CategoryCard key={nanoid()} category={cat} index={index} />
+              ? catsList.map((cat) => (
+                <CategoryCard key={nanoid()} category={cat} />
               ))
               : null}
             {error ? <div>{error}</div> : null}

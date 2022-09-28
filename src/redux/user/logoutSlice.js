@@ -18,6 +18,10 @@ const remIsAdmin = (isAdmin) => {
   localStorage.removeItem('isAdmin', isAdmin);
 };
 
+const remUser = (user) => {
+  localStorage.removeItem('user', user);
+};
+
 export const logout = createAsyncThunk('user/logout', (user) => axios
   .get(`${BASE_URL}logout`, {
     user,
@@ -26,6 +30,7 @@ export const logout = createAsyncThunk('user/logout', (user) => axios
     localStorage.setItem('loggedOut', true);
     remToken();
     remIsAdmin();
+    remUser();
     window.location.reload();
     return response.data;
   }));

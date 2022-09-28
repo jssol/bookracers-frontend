@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  height: 80vh;
+  margin: 5rem auto 1rem;
+  padding: 1rem;
+}
+
+/* Desktop Version */
+@media screen and (min-width: 768px) {
+  .container {
+    width: 80%;
+  }
+}

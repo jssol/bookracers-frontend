@@ -5,6 +5,7 @@ import axios from 'axios';
 import MotorcycleCard from './MotorcycleCard';
 import './motorcycle.scss';
 import Navbar from '../navigation/Navbar';
+import Toggle from '../navigation/Toggle';
 
 function MotorcycleList() {
   const params = useParams();
@@ -26,22 +27,15 @@ function MotorcycleList() {
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
-    <div className="wrapper">
-      <div>
-        <Navbar />
+    <div className="motorcycle-list">
+      <Navbar />
+      <Toggle />
+      <div className="motorcycle-list-header-container">
+        <h2 className="model-header m-header">LATEST MODELS</h2>
+        <p className="model-header modelheader-ptag">Check out the latest models from our partners</p>
       </div>
-      <div className="motorcycle-list">
-        <h2 className="model-header">LATEST MODELS</h2>
-        <p className="model-header modelheader-ptag">
-          Check out the latest models from our partners
-        </p>
-        {localStorage.getItem('isAdmin') === 'true'
-          ? (
-            <button type="button" className="addMotorBtn">
-              <strong>+</strong>
-              Add Motorcycle
-            </button>
-          ) : null}
+
+      <div>
         {motorcycles.length
           ? motorcycles.map((motorcycle) => (
             <MotorcycleCard key={nanoid()} motor={motorcycle} />
