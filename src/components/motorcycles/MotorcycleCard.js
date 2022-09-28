@@ -30,7 +30,7 @@ function MotorcycleCard({ motor }) {
             <Link to={`/categories/${params.id}/motorcycles/${el.id}`} key={nanoid()}>
               <div className="card card-content">
                 <div className="img-div">
-                  { el.image && (<img src={el.image} alt="" className="imgSize" />) }
+                  { el.picture ? (<img src={`http://localhost:3001/${el.picture}`} alt="" className="imgSize" />) : (<img src={el.image} alt="" className="imgSize" />)}
                 </div>
                 <ul>
                   <li className="model">
