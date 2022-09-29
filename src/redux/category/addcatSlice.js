@@ -1,7 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-
-const BASE_URL = 'http://localhost:3001/api/v1/';
+import BASE_URL from '../api';
 
 const initialState = {
   loading: false,
@@ -10,7 +9,7 @@ const initialState = {
 };
 
 export const addcat = createAsyncThunk('category/addcat', async (category) => {
-  const response = await axios.post(`${BASE_URL}add_category`, category, {
+  const response = await axios.post(`${BASE_URL}api/v1/add_category`, category, {
     headers: {
       Authorization: `${localStorage.getItem('token')}`,
     },

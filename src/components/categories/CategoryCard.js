@@ -5,6 +5,7 @@ import { NavLink } from 'react-router-dom';
 import FillerCard from '../shared/FillerCard';
 import { delcat } from '../../redux/category/delcatSlice';
 import '../assets/styles/catcard.scss';
+import BASE_URL from '../../redux/api';
 
 function CategoryCard({ category }) {
   const {
@@ -25,7 +26,7 @@ function CategoryCard({ category }) {
       <div>
         {picture ? (
           <img
-            src={`http://localhost:3001${picture}`}
+            src={`${BASE_URL}${picture}`}
             alt=" "
             className="card-img"
             style={{

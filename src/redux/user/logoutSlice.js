@@ -1,7 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-
-const BASE_URL = 'http://localhost:3001/api/v1/';
+import BASE_URL from '../api';
 
 const initialState = {
   loading: false,
@@ -23,7 +22,7 @@ const remUser = (user) => {
 };
 
 export const logout = createAsyncThunk('user/logout', (user) => axios
-  .get(`${BASE_URL}logout`, {
+  .get(`${BASE_URL}api/v1/logout`, {
     user,
   })
   .then((response) => {

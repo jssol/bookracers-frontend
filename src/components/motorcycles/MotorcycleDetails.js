@@ -4,6 +4,7 @@ import axios from 'axios';
 import Navbar from '../navigation/Navbar';
 import Toggle from '../navigation/Toggle';
 import './motordetails.scss';
+import BASE_URL from '../../redux/api';
 
 function MotorcycleDetails() {
   const params = useParams();
@@ -12,7 +13,7 @@ function MotorcycleDetails() {
   useEffect(() => {
     async function fetchData() {
       const response = await axios.get(
-        `http://localhost:3001/api/v1/motorcycles/${params.mid}`,
+        `${BASE_URL}api/v1/motorcycles/${params.mid}`,
         {
           headers: {
             Authorization: `${localStorage.getItem('token')}`,
@@ -34,7 +35,7 @@ function MotorcycleDetails() {
         <div className="motor-image">
           {motorcycle.picture ? (
             <img
-              src={`http://localhost:3001/${motorcycle.picture}`}
+              src={`${BASE_URL}${motorcycle.picture}`}
               alt=""
             />
           ) : (

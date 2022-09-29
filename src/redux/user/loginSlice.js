@@ -1,7 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-
-const BASE_URL = 'http://localhost:3001/api/v1/';
+import BASE_URL from '../api';
 
 const initialState = {
   loading: false,
@@ -23,7 +22,7 @@ const setAdmin = (details) => {
 };
 
 export const login = createAsyncThunk('user/login', (user) => axios
-  .post(`${BASE_URL}login`, {
+  .post(`${BASE_URL}api/v1/login`, {
     user,
   })
   .then((response) => {

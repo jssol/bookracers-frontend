@@ -12,6 +12,7 @@ import Navbar from '../navigation/Navbar';
 import newotorcycle from '../../redux/motorcycle/motorcyle.service';
 import Toggle from '../navigation/Toggle';
 import './motorlist.scss';
+import BASE_URL from '../../redux/api';
 
 function MotorcycleList() {
   const params = useParams();
@@ -31,7 +32,7 @@ function MotorcycleList() {
   useEffect(() => {
     async function fetchData() {
       const response = await axios.get(
-        `http://localhost:3001/api/v1/categories/${params.id}`,
+        `${BASE_URL}api/v1/categories/${params.id}`,
         {
           headers: {
             Authorization: `${localStorage.getItem('token')}`,

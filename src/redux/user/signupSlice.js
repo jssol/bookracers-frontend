@@ -1,7 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-
-const BASE_URL = 'http://localhost:3001/api/v1/';
+import BASE_URL from '../api';
 
 const initialState = {
   loading: false,
@@ -15,7 +14,7 @@ const setToken = (token) => {
 };
 
 export const signup = createAsyncThunk('user/signup', (user) => axios
-  .post(`${BASE_URL}signup`, {
+  .post(`${BASE_URL}api/v1/signup`, {
     user,
   })
   .then((response) => {

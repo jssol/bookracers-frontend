@@ -9,6 +9,7 @@ import Toggle from '../navigation/Toggle';
 import 'swiper/css/bundle';
 import '../assets/styles/catpage.scss';
 import '../assets/styles/swiper.scss';
+import BASE_URL from '../../redux/api';
 
 class CategoriesPage extends Component {
   constructor(props) {
@@ -22,7 +23,7 @@ class CategoriesPage extends Component {
 
   componentDidMount() {
     axios
-      .get('http://localhost:3001/api/v1/categories', {
+      .get(`${BASE_URL}api/v1/categories`, {
         headers: {
           Authorization: `${localStorage.getItem('token')}`,
         },

@@ -10,6 +10,7 @@ import {
 import 'swiper/css/bundle';
 import './swiper.css';
 import './motorcard.scss';
+import BASE_URL from '../../redux/api';
 
 function MotorcycleCard({ motor }) {
   const params = useParams();
@@ -34,7 +35,7 @@ function MotorcycleCard({ motor }) {
 
                   <div className="card card-content">
                     <div className="img-div">
-                      { el.picture ? (<img src={`http://localhost:3001/${el.picture}`} alt="" className="imgSize" />) : (<img src={el.image} alt="" className="imgSize" />)}
+                      { el.picture ? (<img src={`${BASE_URL}${el.picture}`} alt="" className="imgSize" />) : (<img src={el.image} alt="" className="imgSize" />)}
                     </div>
                     <ul>
                       <li className="model">
