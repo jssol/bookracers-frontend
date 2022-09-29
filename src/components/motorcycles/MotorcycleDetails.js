@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 import Navbar from '../navigation/Navbar';
 import Toggle from '../navigation/Toggle';
+import './motordetails.scss';
 
 function MotorcycleDetails() {
   const params = useParams();
@@ -34,48 +35,42 @@ function MotorcycleDetails() {
           <img
             src={motorcycle.image}
             alt={motorcycle.brand}
-            style={{
-              display: 'block',
-              width: '150px',
-              height: '150px',
-              marginLeft: 'auto',
-              marginRight: 'auto',
-            }}
           />
+          <h1 className="motor-model">{motorcycle.model}</h1>
         </div>
 
         <div className="motor-info">
-          <h1 className="motor-model">
-            {motorcycle.model}
-          </h1>
 
           <ul className="motor-spec-details">
             <li>
               Model:
-              {' '}
               {motorcycle.model}
             </li>
             <li>
               Brand:
-              {' '}
               {motorcycle.brand}
             </li>
             <li>
               Rental Price: $
-              {' '}
               {motorcycle.rental_price}
             </li>
           </ul>
           <div>
-            {motorcycle.reserved
-              ? (<button type="button" className="reserved-btn" disabled>Reserved</button>) : (
-                <Link to={`/categories/${params.id}/motorcycles/${params.mid}/reservation`}>
-                  <button type="button" className="reserve-btn">Reserve</button>
-                </Link>
-              )}
+            {motorcycle.reserved ? (
+              <button type="button" className="reserved-btn" disabled>
+                Reserved
+              </button>
+            ) : (
+              <Link
+                to={`/categories/${params.id}/motorcycles/${params.mid}/reservation`}
+              >
+                <button type="button" className="reserve-btn">
+                  Reserve
+                </button>
+              </Link>
+            )}
           </div>
         </div>
-
       </div>
     </div>
   );
