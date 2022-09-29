@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import FillerCard from '../shared/FillerCard';
 import { delcat } from '../../redux/category/delcatSlice';
 import '../assets/styles/catcard.scss';
 
@@ -10,56 +11,57 @@ function CategoryCard({ category }) {
     catname, id, image, picture,
   } = category;
   const dispatch = useDispatch();
-  const delHandler = (value) => {
+  const delHandler = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    const { value } = e.target;
     dispatch(delcat({ id: value }));
     window.location.reload();
   };
 
   return (
-    <div className="card">
-      <Link to={`/categories/${id}`}>
-        <div>
-          {picture ? (
-            <img
-              src={`http://localhost:3001${picture}`}
-              alt=" "
-              className="card-img"
-              style={{
-                display: 'block',
-                width: '150px',
-                height: '150px',
-                marginLeft: 'auto',
-                marginRight: 'auto',
-              }}
-            />
-          ) : (
-            <img
-              src={image}
-              alt=" "
-              className="card-img"
-              style={{
-                display: 'block',
-                width: '150px',
-                height: '150px',
-                marginLeft: 'auto',
-                marginRight: 'auto',
-              }}
-            />
-          )}
-        </div>
-        <h3>{catname}</h3>
-      </Link>
+    <NavLink to={`/categories/${id}`} className="card">
+      <FillerCard title={catname} />
+      <div>
+        {picture ? (
+          <img
+            src={`http://localhost:3001${picture}`}
+            alt=" "
+            className="card-img"
+            style={{
+              display: 'block',
+              width: '150px',
+              height: '150px',
+              marginLeft: 'auto',
+              marginRight: 'auto',
+            }}
+          />
+        ) : (
+          <img
+            src={image}
+            alt=" "
+            className="card-img"
+            style={{
+              display: 'block',
+              width: '150px',
+              height: '150px',
+              marginLeft: 'auto',
+              marginRight: 'auto',
+            }}
+          />
+        )}
+      </div>
       {localStorage.getItem('isAdmin') === 'true' ? (
         <button
           type="button"
           className="delCatBtn"
           value={id}
-          onClick={(e) => delHandler(e.target.value)}
+          onClick={(e) => delHandler(e)}
         >
           Delete
         </button>
       ) : null}
-    </div>
+    </NavLink>
   );
 }
 

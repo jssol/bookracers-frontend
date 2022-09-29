@@ -3,30 +3,15 @@
 .filler-card {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: .5rem;
   align-items: center;
   justify-content: center;
   color: $white;
   font-weight: 600;
-  aspect-ratio: 1 / 1;
+  padding: 1rem;
+  width: 100%;
 }
 
-.gray {
-  background-color: $dark-gray;
-}
-
-.orange {
-  background-color: $orange;
-}
-
-.green {
-  background-color: $green;
-}
-
-.black {
-  background-color: $black;
-}
-
-.lime {
-  background-color: $lime;
+.filler-card-title {
+  color: currentColor;
 }
