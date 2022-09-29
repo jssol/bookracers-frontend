@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Homemade+Apple&family=Poppins:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Homemade+Apple&family=Poppins:wght@900&display=swap');
 @import '../assets/styles/design';
 
 .navbar {
@@ -6,6 +6,7 @@
   background-color: #fff;
   transition: 0.5s;
   box-shadow: 0 0 10px rgb(0 0 0 / 20%);
+  overflow: hidden;
 }
 
 .logo {
@@ -15,9 +16,9 @@
 
 .logo-name {
   font-family: 'Homemade Apple', cursive;
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   color: #111;
-  margin-left: 0.6rem;
+  font-weight: 900;
 }
 
 .links-container {
@@ -42,6 +43,10 @@
   text-transform: uppercase;
   padding: 8px;
   width: 100%;
+}
+
+.link {
+  margin-left: 0.7rem;
 }
 
 .link:hover {

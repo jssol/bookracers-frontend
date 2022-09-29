@@ -2,7 +2,6 @@ import React from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { logout } from '../../redux/user/logoutSlice';
-import picture from '../assets/images/vespa.png';
 import './navbar.scss';
 
 function Navbar() {
@@ -20,7 +19,6 @@ function Navbar() {
     <nav className="navbar desktop-sidebar">
       <div className="logo-container">
         <Link to="/categories">
-          <img src={picture} className="logo" alt="logo" />
           <p className="logo-name">BookRacers</p>
         </Link>
       </div>
@@ -31,7 +29,7 @@ function Navbar() {
               className={(navData) => (navData.isActive ? 'active link' : 'link')}
               to="/categories"
             >
-              RACERS
+              CATEGORIES
             </NavLink>
           </li>
           <li>
