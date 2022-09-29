@@ -1,6 +1,10 @@
-.motorcycle-list {
+.motorlist-container {
   display: flex;
   flex-direction: column;
+}
+
+.motorlist-header {
+  margin-bottom: 5rem;
 }
 
 .motorcycle-list-header-container {

@@ -23,7 +23,7 @@
 
 .motorcycle-details-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
@@ -71,6 +71,11 @@
 
 // Desktop Version
 @media screen and (min-width: 768px) {
+  .motorcycle-details-container {
+    display: flex;
+    flex-direction: row;
+  }
+
   .motor-image {
     margin: 1rem;
 
