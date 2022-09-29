@@ -1,16 +1,16 @@
-![](https://img.shields.io/badge/Microverse-blueviolet)
-
 # BookRacers Web App
+
+![badge](https://img.shields.io/badge/Microverse-blueviolet)
 
 - This is a FullStack Group project and here is the backend service provider for the BookRacer App which helps the frontend users to register(sign up) and login (sign in) using JWT. It also provides API endpoints to read, write, update, and delete data.
 
 - We also built a simple documentation for this project so users can have an idea on how to use the app.
 
-*** [Link to FrontEnd App](https://github.com/jssol/bookracers-frontend) ***
-*** [Link to Live Demo]() ***
+***[Link to FrontEnd App](https://github.com/jssol/bookracers-frontend)***
+***[Link to Live Demo](https://beautiful-alfajores-92bbef.netlify.app/)***
 
-*** [Link to BackEnd App](https://github.com/mavericks-db/BookRacers-Rails-Back-End) ***
-*** [Link to Live Demo](https://pacific-garden-78390.herokuapp.com/) ***
+***[Link to BackEnd App](https://github.com/mavericks-db/BookRacers-Rails-Back-End)***
+***[Link to Live Demo](https://pacific-garden-78390.herokuapp.com/)***
 
 ## Kanban Board 📄
 
@@ -24,7 +24,7 @@
 
 ## Built With 🛠️
 
-- [x] [ReactJs](https://reactjs.org/)
+- [x] [React](https://reactjs.org/)
 - [x] [Ruby on Rails](https://rubyonrails.org/)
 - [x] [PostgresSQL](https://www.postgresql.org/)
 - [x] [Rspec](https://rspec.info/)
@@ -34,19 +34,15 @@
 
 Run the following commands:</br>
 `git clone https://github.com/jssol/bookracers-frontend.git`</br>
-`cd b\BookRacers`</br>
-`bundle install`</br>
-`rails s`</br>
+`cd bookracers-frontend`</br>
+`npm install`</br>
+`npm start`</br>
 Open a browser and go to: `https://localhost:3000` to view the app.
 
 ## Testing
 
 `cd BookRacers`</br>
-run `rspec`
-
-## [Go Live]()
-
-N/A
+run `npx eslint . && npx stylelint "**/*.{css,scss}"`
 
 ## Authors
 
@@ -99,8 +95,6 @@ Give a ⭐️ if you like this project!
 
 The design has been inspired by: [Murat Korkmaz on Behance](https://www.behance.net/muratk)
 
-
 ## 📝 License
 
 This project is [MIT](./MIT.md) licensed.
-
