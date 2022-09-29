@@ -1,6 +1,5 @@
 import { Outlet, NavLink } from 'react-router-dom';
 import Header from '../shared/Header';
-import Footer from '../shared/Footer';
 import '../assets/styles/Register.scss';
 
 const Registration = () => (
@@ -27,7 +26,6 @@ const Registration = () => (
         </section>
       </section>
     </section>
-    <Footer />
   </main>
 );
 
