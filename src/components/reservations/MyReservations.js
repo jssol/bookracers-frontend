@@ -8,6 +8,7 @@ import Toggle from '../navigation/Toggle';
 import './myreservations.scss';
 import { delres } from '../../redux/reservations/delresSlice';
 import { cancelmotor } from '../../redux/motorcycle/cancelmotorSlice';
+import BASE_URL from '../../redux/api';
 
 const MyReservations = () => {
   const [loading, setLoading] = useState(true);
@@ -17,7 +18,7 @@ const MyReservations = () => {
   useEffect(() => {
     async function fetchData() {
       const response = await axios.get(
-        'http://localhost:3001/api/v1/reservations',
+        `${BASE_URL}/reservations`,
         {
           headers: {
             Authorization: `${localStorage.getItem('token')}`,
