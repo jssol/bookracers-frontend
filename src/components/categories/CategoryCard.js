@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { delcat } from '../../redux/category/delcatSlice';
-import './category.css';
+import './catcard.scss';
 
 function CategoryCard({ category }) {
   const {
@@ -14,6 +14,8 @@ function CategoryCard({ category }) {
     dispatch(delcat({ id: value }));
     window.location.reload();
   };
+
+  console.log(category);
 
   return (
     <div className="card">
