@@ -1,2 +1,2 @@
-const BASE_URL = 'http://localhost:3001/api/v1';
+const BASE_URL = 'https://pacific-garden-78390.herokuapp.com/';
 export default BASE_URL;

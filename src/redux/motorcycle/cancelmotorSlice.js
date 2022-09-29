@@ -1,7 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-
-const BASE_URL = 'http://localhost:3001/api/v1/';
+import BASE_URL from '../api';
 
 const initialState = {
   loading: false,
@@ -13,7 +12,7 @@ export const cancelmotor = createAsyncThunk(
   'motorcycle/cancelmotor',
   async (motorcycle) => {
     const response = await axios.patch(
-      `${BASE_URL}update_motorcycle`,
+      `${BASE_URL}api/v1/update_motorcycle`,
       motorcycle,
       {
         headers: {

@@ -1,7 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-
-const BASE_URL = 'http://localhost:3001/api/v1/';
+import BASE_URL from '../api';
 
 const initialState = {
   loading: false,
@@ -11,7 +10,7 @@ const initialState = {
 
 export const delcat = createAsyncThunk('category/delcat', (category) => axios
   .delete(
-    `${BASE_URL}del_category`,
+    `${BASE_URL}api/v1/del_category`,
     {
       headers: {
         Authorization: `${localStorage.getItem('token')}`,

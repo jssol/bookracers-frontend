@@ -1,10 +1,11 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import BASE_URL from '../api';
 
 const newotorcycle = createAsyncThunk(
   'createmotorcycle/createmotorcycle',
   async (resource) => {
-    const response = await axios.post('http://localhost:3001/api/v1/add_motorcycle', resource, {
+    const response = await axios.post(`${BASE_URL}api/v1/add_motorcycle`, resource, {
       headers: {
         Authorization: `${localStorage.getItem('token')}`,
       },
