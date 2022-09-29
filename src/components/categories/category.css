@@ -1,7 +1,14 @@
-.category-container {
+.wrapper {
   display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
+  gap: 1em;
+}
+
+.category-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-column-gap: 0;
+  grid-row-gap: 0;
   background-repeat: no-repeat;
   text-align: center;
   margin: 5rem auto 1rem;
