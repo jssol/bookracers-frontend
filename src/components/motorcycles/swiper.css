@@ -1,0 +1,25 @@
+.mySwiper {
+  width: 80%;
+  height: 100%;
+}
+
+.swiper-slide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .mySwiper {
+    width: 80%;
+    height: 100%;
+  }
+
+  .swiper-slide {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+  }
+}

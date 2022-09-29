@@ -46,33 +46,6 @@ a {
   border: 1px solid #e7e7e7;
 }
 
-.motorcycle-list {
-  display: flex;
-  flex-direction: column;
-}
-
-.motorcycle-list-header-container {
-  background: none;
-}
-
-.model {
-  font-weight: 700;
-  font-family: inherit;
-  color: #071a1a;
-  text-align: center;
-  background: #fff;
-}
-
-.model-name {
-  display: flex;
-  justify-content: center;
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-  text-align: center;
-  color: #5d5e5e;
-}
-
 .model-header,
 .content-id {
   text-align: center;
@@ -84,46 +57,12 @@ a {
   margin-top: 20%;
 }
 
-.content-id {
-  color: #98c110;
-}
-
 .modelheader-ptag {
   font-size: small;
 }
 
-.socials {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  width: 80%;
-}
-
-.socials li {
-  background: white;
-  border-radius: 100%;
-  padding: 5px;
-  border: 1px solid #adb2b2;
-  margin-right: 10px;
-}
-
 .imgSize {
   width: 140px;
-}
-
-.img-div {
-  width: 10rem;
-  height: 10rem;
-  background-color: #fff;
-  border-radius: 50%;
-  border: 5px solid beige;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 0;
-  margin-bottom: 2rem;
 }
 
 .carousel-container {

@@ -4,9 +4,9 @@ import axios from 'axios';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Navigation } from 'swiper';
 import CategoryCard from './CategoryCard';
-import './catpage.scss';
 import Navbar from '../navigation/Navbar';
 import Toggle from '../navigation/Toggle';
+import './catpage.scss';
 import 'swiper/css/bundle';
 import './swiper.css';
 

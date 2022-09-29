@@ -3,13 +3,14 @@ import { useParams } from 'react-router-dom';
 import { nanoid } from '@reduxjs/toolkit';
 import axios from 'axios';
 import MotorcycleCard from './MotorcycleCard';
-import './motorcycle.scss';
 import Navbar from '../navigation/Navbar';
 import Toggle from '../navigation/Toggle';
+import './motorlist.scss';
 
 function MotorcycleList() {
   const params = useParams();
   const [motorcycles, setMotorcycles] = useState([]);
+  const [catname, setCatname] = useState('');
 
   useEffect(() => {
     async function fetchData() {
@@ -22,25 +23,42 @@ function MotorcycleList() {
         },
       );
       setMotorcycles(response.data);
+      setCatname(response.data.catname);
     }
     fetchData();
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
-    <div className="motorcycle-list">
-      <Navbar />
-      <Toggle />
-      <div className="motorcycle-list-header-container">
-        <h2 className="model-header m-header">LATEST MODELS</h2>
-        <p className="model-header modelheader-ptag">Check out the latest models from our partners</p>
-      </div>
-
+    <div className="wrapper">
       <div>
-        {motorcycles.length
-          ? motorcycles.map((motorcycle) => (
-            <MotorcycleCard key={nanoid()} motor={motorcycle} />
-          ))
-          : null}
+        <Navbar />
+        <Toggle />
+      </div>
+      <div className="motorcycle-list">
+        <div className="motorcycle-list-header-container">
+          <h2 className="model-header m-header">LATEST MODELS</h2>
+          <p className="model-header modelheader-ptag">
+            Check out the latest models from our partners
+          </p>
+          <div className="model-name">
+            <p>
+              Category
+              {' '}
+              {params.id}
+              {' '}
+              {catname}
+            </p>
+          </div>
+        </div>
+        <div>
+          {motorcycles.length
+            ? motorcycles.map((motorcycle) => (
+
+              <MotorcycleCard key={nanoid()} motor={motorcycle} />
+
+            ))
+            : null}
+        </div>
       </div>
     </div>
   );
