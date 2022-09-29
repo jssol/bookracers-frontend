@@ -32,10 +32,17 @@ function MotorcycleDetails() {
       </div>
       <div className="motorcycle-details-container">
         <div className="motor-image">
-          <img
-            src={motorcycle.image}
-            alt={motorcycle.brand}
-          />
+          {motorcycle.picture ? (
+            <img
+              src={`http://localhost:3001/${motorcycle.picture}`}
+              alt=""
+            />
+          ) : (
+            <img
+              src={motorcycle.image}
+              alt=""
+            />
+          )}
           <h1 className="motor-model">{motorcycle.model}</h1>
         </div>
 

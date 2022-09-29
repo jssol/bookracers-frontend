@@ -15,6 +15,8 @@ function CategoryCard({ category }) {
     window.location.reload();
   };
 
+  console.log(category);
+
   return (
     <div className="card">
       <Link to={`/categories/${id}`}>
