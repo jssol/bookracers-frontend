@@ -11,19 +11,18 @@ const initialState = {
 
 export const updatemotor = createAsyncThunk(
   'motorcycle/updatemotor',
-  (motorcycle) => axios
-    .patch(
+  async (motorcycle) => {
+    const response = await axios.patch(
       `${BASE_URL}update_motorcycle`,
-      {
-        motorcycle,
-      },
+      motorcycle,
       {
         headers: {
           Authorization: `${localStorage.getItem('token')}`,
         },
       },
-    )
-    .then((response) => response.data),
+    );
+    return response.data;
+  },
 );
 
 const motorcycleSlice = createSlice({

@@ -9,33 +9,38 @@ const initialState = {
   error: '',
 };
 
-export const addmotor = createAsyncThunk('motorcycle/addmotor', (motorcycle) => axios
-  .post(`${BASE_URL}add_motorcycle`, {
-    motorcycle,
+export const cancelmotor = createAsyncThunk(
+  'motorcycle/cancelmotor',
+  async (motorcycle) => {
+    const response = await axios.patch(
+      `${BASE_URL}update_motorcycle`,
+      motorcycle,
+      {
+        headers: {
+          Authorization: `${localStorage.getItem('token')}`,
+        },
+      },
+    );
+    return response.data;
   },
-  {
-    headers: {
-      Authorization: `${localStorage.getItem('token')}`,
-    },
-  })
-  .then((response) => response.data));
+);
 
 const motorcycleSlice = createSlice({
-  name: 'userAddMotor',
+  name: 'userCancelMotor',
   initialState,
   /* eslint-disable */
   extraReducers: (builder) => {
-    builder.addCase(addmotor.pending, (state) => {
+    builder.addCase(cancelmotor.pending, (state) => {
       state.loading = true;
       state.motorcycle = {};
       state.error = '';
     });
-    builder.addCase(addmotor.fulfilled, (state, action) => {
+    builder.addCase(cancelmotor.fulfilled, (state, action) => {
       state.loading = false;
       state.motorcycle = action.payload;
       state.error = '';
     });
-    builder.addCase(addmotor.rejected, (state, action) => {
+    builder.addCase(cancelmotor.rejected, (state, action) => {
       state.loading = false;
       state.motorcycle = {};
       state.error = action.error.message;
