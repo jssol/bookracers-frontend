@@ -1,0 +1,41 @@
+@import 'design';
+
+.category-container {
+  height: 100vh;
+  display: flex;
+}
+
+.swiper {
+  margin: 0;
+}
+
+.swiper-wrapper {
+  height: 100vh;
+  padding: 0 3rem;
+}
+
+.swiper-slide {
+  height: 100%;
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  width: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  background-color: #97bf0e;
+  color: hsl(0deg, 0%, 100%);
+  border-radius: 50%;
+  font-size: 0.5rem;
+  height: 4rem;
+  aspect-ratio: 1 / 1;
+}

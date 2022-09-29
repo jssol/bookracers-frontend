@@ -6,9 +6,9 @@ import { Pagination, Navigation } from 'swiper';
 import CategoryCard from './CategoryCard';
 import Navbar from '../navigation/Navbar';
 import Toggle from '../navigation/Toggle';
-import './catpage.scss';
 import 'swiper/css/bundle';
-import './swiper.css';
+import '../assets/styles/catpage.scss';
+import '../assets/styles/swiper.scss';
 
 class CategoriesPage extends Component {
   constructor(props) {
@@ -50,10 +50,9 @@ class CategoriesPage extends Component {
           </div>
           <div className="category-container">
             <Swiper
-              centeredSlides
               pagination={{ clickable: true }}
-              spaceBetween={50}
-              slidesPerView="auto"
+              spaceBetween={5}
+              slidesPerView="3"
               navigation
               modules={[Pagination, Navigation]}
               className="mySwiper"
