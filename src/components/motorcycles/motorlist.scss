@@ -1,0 +1,36 @@
+.motorlist-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.motorlist-header {
+  margin-bottom: 5rem;
+}
+
+.motorcycle-list-header-container {
+  background: none;
+}
+
+.model-header {
+  text-align: center;
+  padding: 0.5rem;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.m-header {
+  margin-top: 5rem;
+}
+
+.modelheader-ptag {
+  font-size: small;
+}
+
+.model-name {
+  display: flex;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: #5d5e5e;
+}

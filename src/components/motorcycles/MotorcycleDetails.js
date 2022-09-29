@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 import Navbar from '../navigation/Navbar';
 import Toggle from '../navigation/Toggle';
+import './motordetails.scss';
 
 function MotorcycleDetails() {
   const params = useParams();
@@ -35,33 +36,17 @@ function MotorcycleDetails() {
             <img
               src={`http://localhost:3001/${motorcycle.picture}`}
               alt=""
-              className="imgSize"
-              style={{
-                display: 'block',
-                width: '150px',
-                height: '150px',
-                marginLeft: 'auto',
-                marginRight: 'auto',
-              }}
             />
           ) : (
             <img
               src={motorcycle.image}
               alt=""
-              className="imgSize"
-              style={{
-                display: 'block',
-                width: '150px',
-                height: '150px',
-                marginLeft: 'auto',
-                marginRight: 'auto',
-              }}
             />
           )}
+          <h1 className="motor-model">{motorcycle.model}</h1>
         </div>
 
         <div className="motor-info">
-          <h1 className="motor-model">{motorcycle.model}</h1>
 
           <ul className="motor-spec-details">
             <li>

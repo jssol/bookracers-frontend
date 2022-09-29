@@ -1,17 +1,3 @@
-.category-container {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  background-repeat: no-repeat;
-  text-align: center;
-  margin: 5rem auto 1rem;
-  width: 100%;
-}
-
-a {
-  text-decoration: none;
-}
-
 .card {
   display: flex;
   flex-direction: column;
@@ -36,10 +22,6 @@ a {
   background-position: center;
 }
 
-.add-category-form {
-  border: 2px solid red;
-}
-
 .delCatBtn {
   top: 15px;
   right: 30px;
@@ -61,15 +43,6 @@ h3 {
 
 /* Desktop Version */
 @media screen and (min-width: 768px) {
-  .category-container {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
-  }
-
   .card {
     display: flex;
     justify-content: center;
@@ -82,20 +55,6 @@ h3 {
     width: 280px;
     height: 280px;
     margin: 0;
-  }
-
-  .add-category-form {
-    width: 50%;
-    margin: auto;
-    margin-top: 10%;
-    justify-content: center;
-    padding: 2%;
-    border-color: hsl(74deg, 85%, 41%);
-  }
-
-  .add-category-form h2 {
-    width: fit-content;
-    margin: auto;
   }
 
   .delCatBtn {
