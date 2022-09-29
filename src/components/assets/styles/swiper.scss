@@ -1,0 +1,24 @@
+.category-container {
+  height: 100vh;
+  display: flex;
+}
+
+.swiper {
+  margin: 0;
+}
+
+.swiper-wrapper {
+  height: 100vh;
+  padding: 0 3rem;
+}
+
+.swiper-slide {
+  height: 100%;
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
