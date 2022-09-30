@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import '../assets/styles/Splashscreen.scss';
 
-function Splashscreen() {
+const Splashscreen = () => {
   useEffect(() => {
     if (localStorage.getItem('loggedOut')) {
       localStorage.removeItem('loggedOut');
@@ -21,6 +21,6 @@ function Splashscreen() {
       </main>
     </>
   );
-}
+};
 
 export default Splashscreen;

@@ -1,8 +1,3 @@
-.motorlist-container {
-  display: flex;
-  flex-direction: column;
-}
-
 .motorlist-header {
   margin-bottom: 5rem;
 }
@@ -33,4 +28,14 @@
   margin-bottom: 1rem;
   text-align: center;
   color: #5d5e5e;
+}
+
+/* Desktop Version */
+@media screen and (max-width: 768px) {
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 }

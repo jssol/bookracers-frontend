@@ -6,12 +6,12 @@ import Toggle from '../navigation/Toggle';
 import './motordetails.scss';
 import BASE_URL from '../../redux/api';
 
-function MotorcycleDetails() {
+const MotorcycleDetails = () => {
   const params = useParams();
   const [motorcycle, setMotorcycle] = useState([]);
 
   useEffect(() => {
-    async function fetchData() {
+    const fetchData = async () => {
       const response = await axios.get(
         `${BASE_URL}api/v1/motorcycles/${params.mid}`,
         {
@@ -21,7 +21,7 @@ function MotorcycleDetails() {
         },
       );
       setMotorcycle(response.data);
-    }
+    };
     fetchData();
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
@@ -82,6 +82,6 @@ function MotorcycleDetails() {
       </div>
     </div>
   );
-}
+};
 
 export default MotorcycleDetails;

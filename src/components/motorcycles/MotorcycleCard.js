@@ -12,7 +12,7 @@ import './swiper.css';
 import './motorcard.scss';
 import BASE_URL from '../../redux/api';
 
-function MotorcycleCard({ motor }) {
+const MotorcycleCard = ({ motor }) => {
   const params = useParams();
   const { motorcycles } = motor;
 
@@ -68,7 +68,7 @@ function MotorcycleCard({ motor }) {
       </div>
     </>
   );
-}
+};
 
 MotorcycleCard.defaultProps = {
   motor: {

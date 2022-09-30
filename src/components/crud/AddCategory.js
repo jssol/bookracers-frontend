@@ -6,7 +6,7 @@ import Navbar from '../navigation/Navbar';
 import Toggle from '../navigation/Toggle';
 import './addcategory.scss';
 
-function AddCategory() {
+const AddCategory = () => {
   const dispatch = useDispatch();
   const [catname, setCatname] = useState('');
   const [picture, setPicture] = useState('');
@@ -81,6 +81,6 @@ function AddCategory() {
       </div>
     </>
   );
-}
+};
 
 export default AddCategory;

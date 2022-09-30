@@ -14,10 +14,10 @@ import Toggle from '../navigation/Toggle';
 import './motorlist.scss';
 import BASE_URL from '../../redux/api';
 
-function MotorcycleList() {
+const MotorcycleList = () => {
   const params = useParams();
   const [motorcycles, setMotorcycles] = useState([]);
-  const [catname, setCatname] = useState('');
+  // const [catname, setCatname] = useState('');
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -30,7 +30,7 @@ function MotorcycleList() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    async function fetchData() {
+    const fetchData = async () => {
       const response = await axios.get(
         `${BASE_URL}api/v1/categories/${params.id}`,
         {
@@ -40,8 +40,8 @@ function MotorcycleList() {
         },
       );
       setMotorcycles(response.data);
-      setCatname(response.data.catname);
-    }
+      // setCatname(response.data.catname);
+    };
     fetchData();
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
@@ -76,18 +76,17 @@ function MotorcycleList() {
         <Navbar />
         <Toggle />
       </div>
-      <div className="motorlist-container">
-        <div className="motorlist-header">
-          {message === 'Motorcycle created successfully' ? (
-            <div className="alert alert-success" role="alert">
-              {message}
-            </div>
-          ) : (
-            <div className="alert alert-danger" role="alert">
-              {message}
-            </div>
-          )}
-          <div className="motorcycle-list-header-container">
+      <div className="motorlist-header">
+        {message === 'Motorcycle created successfully' ? (
+          <div className="alert alert-success" role="alert">
+            {message}
+          </div>
+        ) : (
+          <div className="alert alert-danger" role="alert">
+            {message}
+          </div>
+        )}
+        {/* <div className="motorcycle-list-header-container">
             <h2 className="model-header m-header">LATEST MODELS</h2>
             <p className="model-header modelheader-ptag">
               Check out the latest models from our partners
@@ -101,97 +100,90 @@ function MotorcycleList() {
                 {catname}
               </p>
             </div>
-          </div>
-        </div>
-        <div>
-          {localStorage.getItem('isAdmin') === 'true' ? (
-            <button type="button" className="addMotorBtn" onClick={handleShow}>
-              <strong>+</strong>
-              Add Motorcycle
-            </button>
-          ) : null}
-          {motorcycles.length
-            ? motorcycles.map((motorcycle) => (
-              <MotorcycleCard key={nanoid()} motor={motorcycle} />
-            ))
-            : null}
-        </div>
-
-        {/* <div className="motorcycle-list">
-
-        <div> */}
-
-        <Modal show={show} onHide={handleClose} className="modal">
-          <Modal.Header>
-            <div className="addMotorBtn">
-              <CloseButton variant="white" />
-            </div>
-            <Modal.Title>
-              <h2>Add New Motocycle</h2>
-            </Modal.Title>
-          </Modal.Header>
-          <Modal.Body className="modal-content">
-            <form className="form-container" onSubmit={submitHandler}>
-              <input
-                type="text"
-                placeholder="Brand"
-                name="brand"
-                className="form-input"
-                value={brand}
-                onChange={(e) => setBrand(e.target.value)}
-                required
-              />
-              <input
-                type="text"
-                placeholder="Model"
-                name="model"
-                className="form-input"
-                value={model}
-                onChange={(e) => setModel(e.target.value)}
-                required
-              />
-
-              <DatePicker
-                selected={year}
-                onChange={(year) => setYear(year)}
-                name="year"
-                className="form-input"
-                showYearPicker
-                dateFormat="yyyy"
-                required
-              />
-              <input
-                type="number"
-                placeholder="Rental Price"
-                name="rental_price"
-                className="form-input"
-                value={rentalPrice}
-                onChange={(e) => setRentalPrice(e.target.value)}
-                min="0"
-                required
-              />
-              <input
-                type="file"
-                name="image"
-                className="form-input"
-                onChange={(e) => setPicture(e.target.files[0])}
-                required
-              />
-              <Button
-                type="submit"
-                variant="success"
-                onClick={handleClose}
-                className="form-button button"
-              >
-                Add Motorcycle
-              </Button>
-            </form>
-          </Modal.Body>
-        </Modal>
-
+          </div> */}
       </div>
+      {localStorage.getItem('isAdmin') === 'true' ? (
+        <button type="button" className="addMotorBtn" onClick={handleShow}>
+          <strong>+</strong>
+          Add Motorcycle
+        </button>
+      ) : null}
+      {motorcycles.length
+        ? motorcycles.map((motorcycle) => (
+          <MotorcycleCard key={nanoid()} motor={motorcycle} />
+        ))
+        : null}
+
+      <Modal show={show} onHide={handleClose} className="modal">
+        <Modal.Header>
+          <div className="addMotorBtn">
+            <CloseButton variant="white" />
+          </div>
+          <Modal.Title>
+            <h2>Add New Motocycle</h2>
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body className="modal-content">
+          <form className="form-container" onSubmit={submitHandler}>
+            <input
+              type="text"
+              placeholder="Brand"
+              name="brand"
+              className="form-input"
+              value={brand}
+              onChange={(e) => setBrand(e.target.value)}
+              required
+            />
+            <input
+              type="text"
+              placeholder="Model"
+              name="model"
+              className="form-input"
+              value={model}
+              onChange={(e) => setModel(e.target.value)}
+              required
+            />
+
+            <DatePicker
+              selected={year}
+              onChange={(year) => setYear(year)}
+              name="year"
+              className="form-input"
+              showYearPicker
+              dateFormat="yyyy"
+              required
+            />
+            <input
+              type="number"
+              placeholder="Rental Price"
+              name="rental_price"
+              className="form-input"
+              value={rentalPrice}
+              onChange={(e) => setRentalPrice(e.target.value)}
+              min="0"
+              required
+            />
+            <input
+              type="file"
+              name="image"
+              className="form-input"
+              onChange={(e) => setPicture(e.target.files[0])}
+              required
+            />
+            <Button
+              type="submit"
+              variant="success"
+              onClick={handleClose}
+              className="form-button button"
+            >
+              Add Motorcycle
+            </Button>
+          </form>
+        </Modal.Body>
+      </Modal>
+
     </div>
   );
-}
+};
 
 export default MotorcycleList;

@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { login } from '../../redux/user/loginSlice';
 
-function NewLogin() {
+const NewLogin = () => {
   const dispatch = useDispatch();
   let state = useSelector((state) => state.login.user);
   const authenticated = useSelector((state) => state.login.authenticated);
@@ -44,6 +44,6 @@ function NewLogin() {
       </form>
     </>
   );
-}
+};
 
 export default NewLogin;
