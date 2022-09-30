@@ -13,8 +13,6 @@ import BASE_URL from '../../redux/api';
 const MyReservations = () => {
   const [loading, setLoading] = useState(true);
   const [myreservations, setMyReservations] = useState([]);
-  const user = JSON.parse(localStorage.getItem('user'));
-
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(
@@ -33,6 +31,8 @@ const MyReservations = () => {
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  const user = JSON.parse(localStorage.getItem('user'));
 
   const delHandler = (value) => {
     dispatch(delres({ id: value }));
