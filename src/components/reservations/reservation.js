@@ -52,7 +52,6 @@ const Reservation = () => {
           total_price: result,
           city,
         };
-        updateHandler(e.target.value);
         dispatch(reservation(reservebike));
         setReserved(true);
         setMessage('Motorcycle reserved successfully');
@@ -131,6 +130,7 @@ const Reservation = () => {
               type="submit"
               className="btn-enable-reserve"
               value={params.mid}
+              onClick={(e) => updateHandler(e.target.value)}
             >
               Submit
             </button>
