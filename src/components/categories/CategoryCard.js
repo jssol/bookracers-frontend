@@ -24,9 +24,9 @@ const CategoryCard = ({ category }) => {
     <NavLink to={`/categories/${id}`} className="card">
       <FillerCard title={catname} />
       <div>
-        {picture ? (
+        {image ? (
           <img
-            src={`${BASE_URL}${picture}`}
+            src={image}
             alt=" "
             className="card-img"
             style={{
@@ -39,7 +39,7 @@ const CategoryCard = ({ category }) => {
           />
         ) : (
           <img
-            src={image}
+            src={`${BASE_URL}${picture}`}
             alt=" "
             className="card-img"
             style={{
