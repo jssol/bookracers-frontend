@@ -18,7 +18,7 @@ const MyReservations = () => {
   useEffect(() => {
     async function fetchData() {
       const response = await axios.get(
-        `${BASE_URL}/reservations`,
+        `${BASE_URL}api/v1/reservations`,
         {
           headers: {
             Authorization: `${localStorage.getItem('token')}`,
