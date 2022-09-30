@@ -58,6 +58,7 @@ const Reservation = () => {
   const updateHandler = (value) => {
     const state = { id: value, reserved: true };
     dispatch(updatemotor(state));
+    window.location.reload();
   };
 
   return (
