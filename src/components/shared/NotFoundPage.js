@@ -1,73 +1,50 @@
-import React from 'react';
-import gsap, { Linear } from 'gsap';
+import React, { useEffect } from 'react';
+import { NavLink } from 'react-router-dom';
 import '../assets/styles/NotFoundPage.scss';
 
-const t1 = gsap.timeline();
-const t2 = gsap.timeline();
-const t3 = gsap.timeline();
+const NotFoundPage = () => {
+  useEffect(() => {
+    import('../../utils/notfoundpage')
+      .then((module) => {
+        module();
+      });
+  }, []);
 
-t1.to('.cog1', {
-  transformOrigin: '50% 50%',
-  rotation: '+=360',
-  repeat: -1,
-  ease: Linear.easeNone,
-  duration: 8,
-});
+  return (
+    <div className="container">
+      <NavLink to="/" className="home-button">Go to the Homepage</NavLink>
+      <div className="content">
+        <h1 className="first-four">4</h1>
+        <div className="cog-wheel1">
+          <div className="cog1">
+            <div className="top" />
+            <div className="down" />
+            <div className="left-top" />
+            <div className="left-down" />
+            <div className="right-top" />
+            <div className="right-down" />
+            <div className="left" />
+            <div className="right" />
+          </div>
+        </div>
 
-t2.to('.cog2', {
-  transformOrigin: '50% 50%',
-  rotation: '-=360',
-  repeat: -1,
-  ease: Linear.easeNone,
-  duration: 8,
-});
-
-t3.fromTo(
-  '.wrong-para',
-  {
-    opacity: 0,
-  },
-  {
-    opacity: 1,
-    duration: 1,
-    stagger: {
-      repeat: -1,
-      yoyo: true,
-    },
-  },
-);
-
-const NotFoundPage = () => (
-  <div className="container">
-    <h1 className="first-four">4</h1>
-    <div className="cog-wheel1">
-      <div className="cog1">
-        <div className="top" />
-        <div className="down" />
-        <div className="left-top" />
-        <div className="left-down" />
-        <div className="right-top" />
-        <div className="right-down" />
-        <div className="left" />
-        <div className="right" />
+        <div className="cog-wheel2">
+          <div className="cog2">
+            <div className="top" />
+            <div className="down" />
+            <div className="left-top" />
+            <div className="left-down" />
+            <div className="right-top" />
+            <div className="right-down" />
+            <div className="left" />
+            <div className="right" />
+          </div>
+        </div>
+        <h1 className="second-four">4</h1>
       </div>
+      <p className="wrong-para">Uh Oh! Page not found!</p>
     </div>
-
-    <div className="cog-wheel2">
-      <div className="cog2">
-        <div className="top" />
-        <div className="down" />
-        <div className="left-top" />
-        <div className="left-down" />
-        <div className="right-top" />
-        <div className="right-down" />
-        <div className="left" />
-        <div className="right" />
-      </div>
-    </div>
-    <h1 className="second-four">4</h1>
-    <p className="wrong-para">Uh Oh! Page not found!</p>
-  </div>
-);
+  );
+};
 
 export default NotFoundPage;
