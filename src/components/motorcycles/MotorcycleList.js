@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { nanoid } from 'nanoid';
 import DatePicker from 'react-datepicker';
@@ -27,6 +27,7 @@ const MotorcycleList = () => {
   const [picture, setPicture] = useState('');
   const [rentalPrice, setRentalPrice] = useState('');
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -63,7 +64,7 @@ const MotorcycleList = () => {
       motorData.append('motorcycle[category_id]', params.id);
       motorData.append('motorcycle[reserved]', false);
       dispatch(newotorcycle(motorData));
-      window.location.reload();
+      navigate(`/categories/${params.id}`);
       setMessage('Motorcycle created successfully');
     }
   };
