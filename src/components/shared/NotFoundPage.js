@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import '../assets/styles/NotFoundPage.scss';
 
 const NotFoundPage = () => {
@@ -9,10 +9,22 @@ const NotFoundPage = () => {
         module();
       });
   }, []);
+  const navigate = useNavigate();
+
+  const redirectHandler = () => {
+    if (
+      localStorage.getItem('token') !== null
+      && localStorage.getItem('token') !== ''
+    ) {
+      navigate('/categories');
+    } else {
+      navigate('/');
+    }
+  };
 
   return (
     <div className="container">
-      <NavLink to="/" className="home-button">Go to the Homepage</NavLink>
+      <button type="button" onClick={redirectHandler} className="home-button">Go to the Homepage</button>
       <div className="content">
         <h1 className="first-four">4</h1>
         <div className="cog-wheel1">
