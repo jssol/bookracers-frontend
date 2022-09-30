@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import { nanoid } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -11,67 +11,54 @@ import '../assets/styles/catpage.scss';
 import '../assets/styles/swiper.scss';
 import BASE_URL from '../../redux/api';
 
-class CategoriesPage extends Component {
-  constructor(props) {
-    super(props);
+const CategoriesPage = () => {
+  const [catsList, setCatsList] = useState([]);
+  const [error, setError] = useState('');
 
-    this.state = {
-      catsList: [],
-      error: '',
-    };
-  }
-
-  componentDidMount() {
-    axios
-      .get(`${BASE_URL}api/v1/categories`, {
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await axios.get(`${BASE_URL}api/v1/categories`, {
         headers: {
           Authorization: `${localStorage.getItem('token')}`,
         },
-      })
-      .then((response) => {
-        this.setState({
-          catsList: response.data,
-        });
-      })
-      .catch((error) => {
-        this.setState({
-          error: error.message,
-        });
       });
-  }
+      setCatsList(response.data);
+    };
 
-  render() {
-    const { catsList, error } = this.state;
-    return (
-      <>
-        <div className="wrapper">
-          <div>
-            <Navbar />
-            <Toggle />
-          </div>
-          <div className="category-container">
-            <Swiper
-              pagination={{ clickable: true }}
-              spaceBetween={5}
-              slidesPerView="3"
-              navigation
-              modules={[Pagination, Navigation]}
-              className="mySwiper"
-            >
-              {catsList.length
-                ? catsList.map((cat) => (
-                  <SwiperSlide key={nanoid()}>
-                    <CategoryCard key={nanoid()} category={cat} />
-                  </SwiperSlide>
-                ))
-                : null}
-              {error ? <div>{error}</div> : null}
-            </Swiper>
-          </div>
+    fetchData().catch((error) => {
+      setError(error.message);
+    });
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
+  return (
+    <>
+      <div className="wrapper">
+        <div>
+          <Navbar />
+          <Toggle />
         </div>
-      </>
-    );
-  }
-}
+        <div className="category-container">
+          <Swiper
+            pagination={{ clickable: true }}
+            spaceBetween={5}
+            slidesPerView="3"
+            navigation
+            modules={[Pagination, Navigation]}
+            className="mySwiper"
+          >
+            {catsList.length
+              ? catsList.map((cat) => (
+                <SwiperSlide key={nanoid()}>
+                  <CategoryCard key={nanoid()} category={cat} />
+                </SwiperSlide>
+              ))
+              : null}
+            {error ? <div>{error}</div> : null}
+          </Swiper>
+        </div>
+      </div>
+    </>
+  );
+};
 
 export default CategoriesPage;

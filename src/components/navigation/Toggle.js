@@ -6,7 +6,7 @@ import { FiMenu } from 'react-icons/fi';
 import { logout } from '../../redux/user/logoutSlice';
 import './toggle.scss';
 
-export default function Toggle() {
+const Toggle = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -87,4 +87,6 @@ export default function Toggle() {
       </ul>
     </nav>
   );
-}
+};
+
+export default Toggle;

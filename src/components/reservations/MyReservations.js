@@ -16,7 +16,7 @@ const MyReservations = () => {
   const user = JSON.parse(localStorage.getItem('user'));
 
   useEffect(() => {
-    async function fetchData() {
+    const fetchData = async () => {
       const response = await axios.get(
         `${BASE_URL}api/v1/reservations`,
         {
@@ -27,7 +27,7 @@ const MyReservations = () => {
       );
       setLoading(false);
       setMyReservations(response.data.reservation);
-    }
+    };
     fetchData();
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 

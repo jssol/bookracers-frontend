@@ -14,7 +14,7 @@ import Toggle from '../navigation/Toggle';
 import './motorlist.scss';
 import BASE_URL from '../../redux/api';
 
-function MotorcycleList() {
+const MotorcycleList = () => {
   const params = useParams();
   const [motorcycles, setMotorcycles] = useState([]);
   const [catname, setCatname] = useState('');
@@ -30,7 +30,7 @@ function MotorcycleList() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    async function fetchData() {
+    const fetchData = async () => {
       const response = await axios.get(
         `${BASE_URL}api/v1/categories/${params.id}`,
         {
@@ -41,7 +41,7 @@ function MotorcycleList() {
       );
       setMotorcycles(response.data);
       setCatname(response.data.catname);
-    }
+    };
     fetchData();
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
@@ -192,6 +192,6 @@ function MotorcycleList() {
       </div>
     </div>
   );
-}
+};
 
 export default MotorcycleList;

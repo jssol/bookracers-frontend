@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { logout } from '../../redux/user/logoutSlice';
 import './navbar.scss';
 
-function Navbar() {
+const Navbar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -63,6 +63,6 @@ function Navbar() {
       <p className="copyright">&copy; Racers@Microverse 2022</p>
     </nav>
   );
-}
+};
 
 export default Navbar;
