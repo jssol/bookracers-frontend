@@ -33,6 +33,11 @@ const Reservation = () => {
     }
   }, [params, dispatch]);
 
+  const updateHandler = (value) => {
+    const state = { id: value, reserved: true };
+    dispatch(updatemotor(state));
+  };
+
   const submitHandler = (e) => {
     e.preventDefault();
     if (result > 0) {
@@ -47,19 +52,15 @@ const Reservation = () => {
           total_price: result,
           city,
         };
+        updateHandler(e.target.value);
         dispatch(reservation(reservebike));
         setReserved(true);
         setMessage('Motorcycle reserved successfully');
+        navigate('/my_reservations');
       }
     } else {
       setMessage('End date must be greater than start date');
     }
-  };
-
-  const updateHandler = (value) => {
-    const state = { id: value, reserved: true };
-    dispatch(updatemotor(state));
-    navigate('/my_reservations');
   };
 
   return (
@@ -130,7 +131,6 @@ const Reservation = () => {
               type="submit"
               className="btn-enable-reserve"
               value={params.mid}
-              onClick={(e) => updateHandler(e.target.value)}
             >
               Submit
             </button>

@@ -1,17 +1,21 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import BASE_URL from '../api';
 
 const reservation = createAsyncThunk(
   'reservation/reservation',
-  async (reserve) => {
-    const response = await axios.post(`${BASE_URL}api/v1/add_reservation`, reserve, {
+  (reserve) => {
+    axios.post(`${BASE_URL}api/v1/add_reservation`, reserve, {
       headers: {
         Authorization: `${localStorage.getItem('token')}`,
       },
-    });
-    const res = await response.data;
-    return res;
+    })
+      .then((response) => {
+        useNavigate('/my_reservations');
+        const { data } = response;
+        return data;
+      });
   },
 );
 
