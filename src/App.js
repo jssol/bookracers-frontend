@@ -13,6 +13,7 @@ import Toggle from './components/navigation/Toggle';
 import AddCategory from './components/crud/AddCategory';
 import MyReservations from './components/reservations/MyReservations';
 import Reservation from './components/reservations/reservation';
+import NotFoundPage from './components/shared/NotFoundPage';
 
 const App = () => (
   <>
@@ -36,6 +37,7 @@ const App = () => (
       <Route path="/add_category" element={<AddCategory />} />
       <Route path="/my_reservations" element={<MyReservations />} />
       <Route path="/categories/:id/motorcycles/:mid/reservation" element={<Reservation />} />
+      <Route path="*" element={<NotFoundPage />} />
     </Routes>
   </>
 );
