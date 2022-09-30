@@ -41,7 +41,8 @@ const CategoriesPage = () => {
           <Swiper
             pagination={{ clickable: true }}
             spaceBetween={5}
-            slidesPerView="3"
+            slidesPerView="auto"
+            centeredSlides={true}
             navigation
             modules={[Pagination, Navigation]}
             className="mySwiper"

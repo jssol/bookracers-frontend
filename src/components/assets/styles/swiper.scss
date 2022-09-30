@@ -12,11 +12,13 @@
 .swiper-wrapper {
   height: 100vh;
   padding: 0 3rem;
+  width: 70%;
 }
 
 .swiper-slide {
-  height: 100%;
-  width: 30%;
+  margin-top: 5rem;
+  height: 50%;
+  width: 20%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -38,4 +40,25 @@
   font-size: 0.5rem;
   height: 4rem;
   aspect-ratio: 1 / 1;
+}
+
+@media screen and (max-width: 768px) {
+  .category-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+  }
+
+  .swiper-wrapper {
+    height: 100vh;
+    padding: 0 3rem;
+    width: 100%;
+  }
+
+  .swiper-slide {
+    width: 100%;
+  }
 }

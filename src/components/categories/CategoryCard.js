@@ -12,57 +12,58 @@ const CategoryCard = ({ category }) => {
     catname, id, image, picture,
   } = category;
   const dispatch = useDispatch();
-  const delHandler = (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    const { value } = e.target;
+  const delHandler = (value) => {
     dispatch(delcat({ id: value }));
     window.location.reload();
   };
 
   return (
-    <NavLink to={`/categories/${id}`} className="card">
-      <FillerCard title={catname} />
+    <>
+      <NavLink to={`/categories/${id}`} className="card">
+        <FillerCard title={catname} />
+        <div>
+          {image ? (
+            <img
+              src={image}
+              alt=" "
+              className="card-img"
+              style={{
+                display: 'block',
+                width: '150px',
+                height: '150px',
+                marginLeft: 'auto',
+                marginRight: 'auto',
+              }}
+            />
+          ) : (
+            <img
+              src={`${BASE_URL}${picture}`}
+              alt=" "
+              className="card-img"
+              style={{
+                display: 'block',
+                width: '150px',
+                height: '150px',
+                marginLeft: 'auto',
+                marginRight: 'auto',
+              }}
+            />
+          )}
+        </div>
+      </NavLink>
       <div>
-        {image ? (
-          <img
-            src={image}
-            alt=" "
-            className="card-img"
-            style={{
-              display: 'block',
-              width: '150px',
-              height: '150px',
-              marginLeft: 'auto',
-              marginRight: 'auto',
-            }}
-          />
-        ) : (
-          <img
-            src={`${BASE_URL}${picture}`}
-            alt=" "
-            className="card-img"
-            style={{
-              display: 'block',
-              width: '150px',
-              height: '150px',
-              marginLeft: 'auto',
-              marginRight: 'auto',
-            }}
-          />
-        )}
+        {localStorage.getItem('isAdmin') === 'true' ? (
+          <button
+            type="button"
+            className="delCatBtn"
+            value={id}
+            onClick={(e) => delHandler(e.target.value)}
+          >
+            Delete
+          </button>
+        ) : null}
       </div>
-      {localStorage.getItem('isAdmin') === 'true' ? (
-        <button
-          type="button"
-          className="delCatBtn"
-          value={id}
-          onClick={(e) => delHandler(e)}
-        >
-          Delete
-        </button>
-      ) : null}
-    </NavLink>
+    </>
   );
 };
 
