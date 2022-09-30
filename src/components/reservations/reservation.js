@@ -8,7 +8,7 @@ import reservation from '../../redux/reservations/reservation.service';
 import totalPrice from '../../helpers/dateHandler';
 import Navbar from '../navigation/Navbar';
 import Toggle from '../navigation/Toggle';
-import './reservation.css';
+import './reservation.scss';
 import { updatemotor } from '../../redux/motorcycle/updatemotorSlice';
 
 const Reservation = () => {
