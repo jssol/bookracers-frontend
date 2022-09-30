@@ -18,7 +18,7 @@
 - [Initial State of Kanban Board](https://user-images.githubusercontent.com/98527559/192945812-10be48ed-052b-4009-bdcd-a2eaaf64b545.png)
 - Here in this project, we are a group of five(5) members and we used the Kanban board to manage our tasks and to keep track of our progress.
 
-## Entity Relation Diagram
+## Entity Relationship Diagram
 
  ![BookRacerERD](https://user-images.githubusercontent.com/28694196/193096947-5963532a-3cec-472a-b4a6-e02b1a5d1212.png)
 
