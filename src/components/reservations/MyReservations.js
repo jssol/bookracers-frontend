@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { nanoid } from '@reduxjs/toolkit';
 import axios from 'axios';
 import Navbar from '../navigation/Navbar';
@@ -30,6 +30,7 @@ const MyReservations = () => {
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const user = JSON.parse(localStorage.getItem('user'));
 
@@ -40,7 +41,7 @@ const MyReservations = () => {
   const cancelHandler = (value) => {
     const state = { id: value, reserved: false };
     dispatch(cancelmotor(state));
-    window.location.reload();
+    navigate('/categories');
   };
 
   return (
