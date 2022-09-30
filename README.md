@@ -1,16 +1,16 @@
-![](https://img.shields.io/badge/Microverse-blueviolet)
-
 # BookRacers Web App
+
+![badge](https://img.shields.io/badge/Microverse-blueviolet)
 
 - This is a FullStack Group project and here is the frontend service provider for the BookRacer App which helps the frontend users to register(sign up) and login (sign in) using JWT. It also provides API endpoints to read, write, update, and delete data.
 
 - We also built a simple documentation for this project so users can have an idea on how to use the app.
 
-*** [Link to FrontEnd App](https://github.com/jssol/bookracers-frontend) ***
-*** [Link to Live Demo](https://beautiful-alfajores-92bbef.netlify.app) ***
+***[Link to FrontEnd App](https://github.com/jssol/bookracers-frontend)***
+***[Link to Live Demo](https://beautiful-alfajores-92bbef.netlify.app)***
 
-*** [Link to BackEnd App](https://github.com/mavericks-db/BookRacers-Rails-Back-End) ***
-*** [Link to Live Demo](https://pacific-garden-78390.herokuapp.com/) ***
+***[Link to BackEnd App](https://github.com/mavericks-db/BookRacers-Rails-Back-End)***
+***[Link to Live Demo](https://pacific-garden-78390.herokuapp.com/)***
 
 ## Kanban Board 📄
 
@@ -76,6 +76,7 @@ Open a browser and go to: `https://localhost:3000` to view the frontend app.
 Contributions, issues, and feature requests are welcome!
 
 Feel free to check the [issues page](https://github.com/jssol/bookracers-frontend/issues) and
+
 - [issues page](https://github.com/mavericks-db/BookRacers-Rails-Back-End/issues)
 
 ## Show your support
@@ -89,7 +90,6 @@ Give a ⭐️ if you like this project!
 - Coding Partners
 
 The design has been inspired by: [Murat Korkmaz on Behance](https://www.behance.net/muratk)
-
 
 ## 📝 License
 

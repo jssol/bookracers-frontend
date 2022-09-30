@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import motorDetail from '../../redux/motorcycles/detail.service';
@@ -8,7 +8,7 @@ import reservation from '../../redux/reservations/reservation.service';
 import totalPrice from '../../helpers/dateHandler';
 import Navbar from '../navigation/Navbar';
 import Toggle from '../navigation/Toggle';
-import './reservation.css';
+import './reservation.scss';
 import { updatemotor } from '../../redux/motorcycle/updatemotorSlice';
 
 const Reservation = () => {
@@ -19,6 +19,7 @@ const Reservation = () => {
   const [reserved, setReserved] = useState(false);
   const params = useParams();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const motorD = useSelector((state) => state.motor.motor);
 
@@ -26,11 +27,16 @@ const Reservation = () => {
 
   const d = totalPrice(startDate, endDate);
   const result = d * motorD.rental_price;
-  React.useEffect(() => {
+  useEffect(() => {
     if (params !== 'undefined') {
       dispatch(motorDetail(params.mid));
     }
   }, [params, dispatch]);
+
+  const updateHandler = (value) => {
+    const state = { id: value, reserved: true };
+    dispatch(updatemotor(state));
+  };
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -46,19 +52,15 @@ const Reservation = () => {
           total_price: result,
           city,
         };
+        updateHandler(e.target.value);
         dispatch(reservation(reservebike));
         setReserved(true);
         setMessage('Motorcycle reserved successfully');
+        navigate('/my_reservations');
       }
     } else {
       setMessage('End date must be greater than start date');
     }
-  };
-
-  const updateHandler = (value) => {
-    const state = { id: value, reserved: true };
-    dispatch(updatemotor(state));
-    window.location.reload();
   };
 
   return (
@@ -129,7 +131,6 @@ const Reservation = () => {
               type="submit"
               className="btn-enable-reserve"
               value={params.mid}
-              onClick={(e) => updateHandler(e.target.value)}
             >
               Submit
             </button>

@@ -3,6 +3,7 @@
 .wrapper {
   display: flex;
   overflow: hidden;
+  position: relative;
 }
 
 a {
@@ -22,7 +23,7 @@ a {
   background-color: #fff;
   text-align: center;
   margin: auto;
-  padding: 0;
+  padding: 1.5rem;
 }
 
 .card img {

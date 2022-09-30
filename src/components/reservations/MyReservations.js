@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { useNavigate, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { nanoid } from '@reduxjs/toolkit';
 import axios from 'axios';
 import Navbar from '../navigation/Navbar';
@@ -13,8 +13,6 @@ import BASE_URL from '../../redux/api';
 const MyReservations = () => {
   const [loading, setLoading] = useState(true);
   const [myreservations, setMyReservations] = useState([]);
-  const user = JSON.parse(localStorage.getItem('user'));
-
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(
@@ -31,17 +29,18 @@ const MyReservations = () => {
     fetchData();
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
-  const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  const user = JSON.parse(localStorage.getItem('user'));
 
   const delHandler = (value) => {
     dispatch(delres({ id: value }));
-    navigate('/categories');
   };
 
   const cancelHandler = (value) => {
     const state = { id: value, reserved: false };
     dispatch(cancelmotor(state));
+    window.location.reload();
   };
 
   return (

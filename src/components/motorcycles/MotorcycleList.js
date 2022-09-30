@@ -5,8 +5,8 @@ import { nanoid } from 'nanoid';
 import DatePicker from 'react-datepicker';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import CloseButton from 'react-bootstrap/CloseButton';
 import { useDispatch } from 'react-redux';
+import { FaTimes } from 'react-icons/fa';
 import MotorcycleCard from './MotorcycleCard';
 import Navbar from '../navigation/Navbar';
 import newotorcycle from '../../redux/motorcycle/motorcyle.service';
@@ -17,7 +17,6 @@ import BASE_URL from '../../redux/api';
 const MotorcycleList = () => {
   const params = useParams();
   const [motorcycles, setMotorcycles] = useState([]);
-  // const [catname, setCatname] = useState('');
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -40,7 +39,6 @@ const MotorcycleList = () => {
         },
       );
       setMotorcycles(response.data);
-      // setCatname(response.data.catname);
     };
     fetchData();
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
@@ -86,21 +84,6 @@ const MotorcycleList = () => {
             {message}
           </div>
         )}
-        {/* <div className="motorcycle-list-header-container">
-            <h2 className="model-header m-header">LATEST MODELS</h2>
-            <p className="model-header modelheader-ptag">
-              Check out the latest models from our partners
-            </p>
-            <div className="model-name">
-              <p>
-                Category
-                {' '}
-                {params.id}
-                {' '}
-                {catname}
-              </p>
-            </div>
-          </div> */}
       </div>
       {localStorage.getItem('isAdmin') === 'true' ? (
         <button type="button" className="addMotorBtn" onClick={handleShow}>
@@ -116,11 +99,11 @@ const MotorcycleList = () => {
 
       <Modal show={show} onHide={handleClose} className="modal">
         <Modal.Header>
-          <div className="addMotorBtn">
-            <CloseButton variant="white" />
+          <div className="closeModalBtn">
+            <FaTimes onClick={handleClose} />
           </div>
           <Modal.Title>
-            <h2>Add New Motocycle</h2>
+            <h2>Add New Motorcycle</h2>
           </Modal.Title>
         </Modal.Header>
         <Modal.Body className="modal-content">
