@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import motorDetail from '../../redux/motorcycles/detail.service';
@@ -19,6 +19,7 @@ const Reservation = () => {
   const [reserved, setReserved] = useState(false);
   const params = useParams();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const motorD = useSelector((state) => state.motor.motor);
 
@@ -26,7 +27,7 @@ const Reservation = () => {
 
   const d = totalPrice(startDate, endDate);
   const result = d * motorD.rental_price;
-  React.useEffect(() => {
+  useEffect(() => {
     if (params !== 'undefined') {
       dispatch(motorDetail(params.mid));
     }
@@ -58,7 +59,7 @@ const Reservation = () => {
   const updateHandler = (value) => {
     const state = { id: value, reserved: true };
     dispatch(updatemotor(state));
-    window.location.reload();
+    navigate('/my_reservations');
   };
 
   return (
